@@ -1,0 +1,128 @@
+import type { StaticImageData } from "next/image";
+
+import dataAnalyticsImg from "@/assets/images/courses/data-analytics.jpg";
+import businessAnalyticsImg from "@/assets/images/courses/business-analytics.jpg";
+import dataScienceImg from "@/assets/images/courses/data-science.jpg";
+import powerBiImg from "@/assets/images/courses/power-bi.jpg";
+import sapImg from "@/assets/images/courses/sap.jpg";
+import pythonImg from "@/assets/images/courses/python.jpg";
+
+export type CohortItem = {
+  id: string;
+  slug: string;
+  courseTitle: string;
+  category: string;
+  image: StaticImageData;
+  summary: string;
+  tools: string[];
+  schedule: string;
+  duration: string;
+  mode: string;
+  status: "Admissions Open" | "Fast-Filling Cohort" | "Upcoming Batch" | "Seats Limited";
+  statusTone: "emerald" | "amber" | "blue";
+  highlights: string;
+};
+
+/**
+ * Authentic upcoming training batches and cohorts at Talentele, Bhubaneswar.
+ * Real course photos, verified durations, and direct syllabus & enquiry paths.
+ */
+export const upcomingCohorts: CohortItem[] = [
+  {
+    id: "cohort-da",
+    slug: "data-analytics",
+    courseTitle: "Data Analytics Master Program",
+    category: "Data & Analytics",
+    image: dataAnalyticsImg,
+    summary:
+      "Comprehensive practical training covering SQL query mastery, Advanced Excel modeling, and enterprise Power BI dashboard architecture.",
+    tools: ["SQL", "Power BI", "Excel", "Python", "DAX"],
+    schedule: "Weekday & Weekend Batches",
+    duration: "16–20 Weeks (Practical)",
+    mode: "Classroom (Nayapalli, Bhubaneswar) & Live Online",
+    status: "Admissions Open",
+    statusTone: "emerald",
+    highlights: "1-on-1 Doubt Sessions • 8 Capstone Projects • ATS Resume & Mocks",
+  },
+  {
+    id: "cohort-ba",
+    slug: "business-analytics",
+    courseTitle: "Business Analytics & Intelligence",
+    category: "Analytics & BI",
+    image: businessAnalyticsImg,
+    summary:
+      "Transform business data into executive decision models with financial analytics, statistical reporting, and KPI storytelling.",
+    tools: ["Power BI", "Tableau", "Excel VBA", "Financial Modeling", "KPIs"],
+    schedule: "Weekday & Weekend Batches",
+    duration: "16 Weeks (Hands-on)",
+    mode: "Classroom (Nayapalli) & Live Online",
+    status: "Fast-Filling Cohort",
+    statusTone: "amber",
+    highlights: "Mentored by ex-Accenture/HSBC Faculty • Real Case Studies",
+  },
+  {
+    id: "cohort-ds",
+    slug: "generative-ai",
+    courseTitle: "Data Science & Generative AI",
+    category: "AI & Machine Learning",
+    image: dataScienceImg,
+    summary:
+      "End-to-end data science pipelines: machine learning algorithms, predictive modeling, OpenAI API integration, and prompt engineering.",
+    tools: ["Python", "Pandas", "Scikit-Learn", "OpenAI", "Prompt Eng."],
+    schedule: "Weekend Specialized Cohort",
+    duration: "20–24 Weeks",
+    mode: "Classroom & Live Interactive Online",
+    status: "Upcoming Batch",
+    statusTone: "blue",
+    highlights: "Production ML Pipelines • Deployment • Portfolio Code",
+  },
+  {
+    id: "cohort-pbi",
+    slug: "power-bi",
+    courseTitle: "Microsoft Power BI Masterclass",
+    category: "Business Intelligence",
+    image: powerBiImg,
+    summary:
+      "Master DAX expressions, star schema data modeling, automated gateway refreshes, and enterprise client reporting.",
+    tools: ["Power BI Desktop", "Power BI Service", "DAX", "SQL", "Power Query"],
+    schedule: "Flexible Weekend & Evening Batches",
+    duration: "8–10 Weeks (Intensive)",
+    mode: "Classroom Lab & Live Online",
+    status: "Admissions Open",
+    statusTone: "emerald",
+    highlights: "Live Enterprise Datasets • Row-Level Security • Portfolio Dashboards",
+  },
+  {
+    id: "cohort-sap",
+    slug: "sap",
+    courseTitle: "SAP Enterprise ERP Training",
+    category: "Enterprise Software",
+    image: sapImg,
+    summary:
+      "Enterprise software consulting training covering financial accounting (FICO), materials management (MM), and business processes.",
+    tools: ["SAP FICO", "SAP MM", "SAP SD", "SAP S/4HANA", "ABAP Basics"],
+    schedule: "Weekend & Weekday Intensive",
+    duration: "16–20 Weeks",
+    mode: "Classroom (Nayapalli, Bhubaneswar)",
+    status: "Upcoming Batch",
+    statusTone: "blue",
+    highlights: "Sandbox Lab Practice • Business Process Workflows • Exam Prep",
+  },
+  {
+    id: "cohort-py",
+    slug: "python",
+    courseTitle: "Python for Data Science & Automation",
+    category: "Programming & Code",
+    image: pythonImg,
+    summary:
+      "Learn Python programming from scratch: core syntax, data structures, automated ETL scripts, web scraping, and data manipulation.",
+    tools: ["Python 3", "NumPy", "Pandas", "Matplotlib", "Jupyter", "Git"],
+    schedule: "Weekday & Weekend Batches",
+    duration: "10–12 Weeks",
+    mode: "Classroom Lab & Live Online",
+    status: "Admissions Open",
+    statusTone: "emerald",
+    highlights: "Hands-on Coding Lab • Scripting Projects • 1-on-1 Mentorship",
+  },
+];
+
