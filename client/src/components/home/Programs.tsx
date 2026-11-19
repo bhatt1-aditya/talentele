@@ -86,7 +86,7 @@ export function Programs() {
                   <div className="highlight-pill highlight-duration">{prog.duration}</div>
                 </div>
 
-                {/* Premium Dark Navy View Curriculum Button */}
+                {/* Blue View Curriculum Button */}
                 <Link href={prog.href} className="btn-curriculum">
                   <span>View Curriculum</span>
                   <span className="curriculum-arrow" aria-hidden="true">
