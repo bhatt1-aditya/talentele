@@ -418,7 +418,8 @@
   letter-spacing: -0.045em;
   max-width: 650px;
   margin: 19px 0 21px;
-  font-size: clamp(28px, 2.5vw, 40px);
+  /* font-size: clamp(28px, 2.5vw, 40px); */
+  font-size: clamp(26px, 2vw, 38px);
   font-weight: 800;
   line-height: 1.08;
 }
@@ -531,18 +532,22 @@
   background: rgba(6, 182, 212, 0.08);
   border-color: rgba(6, 182, 212, 0.2);
 }
+
 .hero-course-cyan:hover {
   background: linear-gradient(135deg, rgba(6, 182, 212, 0.14) 0%, rgba(13, 23, 48, 0.95) 100%);
   border-color: rgba(6, 182, 212, 0.5);
   box-shadow: 0 8px 24px -4px rgba(6, 182, 212, 0.25);
   transform: translateY(-2px);
 }
+
 .hero-course-cyan:hover .hero-course-name {
   color: #38bdf8;
 }
+
 .hero-course-cyan:hover .hero-course-tools {
   color: #bae6fd;
 }
+
 .hero-course-cyan:hover .hero-course-arrow {
   color: #38bdf8;
   opacity: 1;
@@ -554,18 +559,22 @@
   background: rgba(168, 85, 247, 0.08);
   border-color: rgba(168, 85, 247, 0.2);
 }
+
 .hero-course-violet:hover {
   background: linear-gradient(135deg, rgba(168, 85, 247, 0.14) 0%, rgba(13, 23, 48, 0.95) 100%);
   border-color: rgba(168, 85, 247, 0.5);
   box-shadow: 0 8px 24px -4px rgba(168, 85, 247, 0.25);
   transform: translateY(-2px);
 }
+
 .hero-course-violet:hover .hero-course-name {
   color: #c084fc;
 }
+
 .hero-course-violet:hover .hero-course-tools {
   color: #e9d5ff;
 }
+
 .hero-course-violet:hover .hero-course-arrow {
   color: #c084fc;
   opacity: 1;
@@ -577,18 +586,22 @@
   background: rgba(14, 165, 233, 0.08);
   border-color: rgba(14, 165, 233, 0.2);
 }
+
 .hero-course-blue:hover {
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.14) 0%, rgba(13, 23, 48, 0.95) 100%);
   border-color: rgba(14, 165, 233, 0.5);
   box-shadow: 0 8px 24px -4px rgba(14, 165, 233, 0.25);
   transform: translateY(-2px);
 }
+
 .hero-course-blue:hover .hero-course-name {
   color: #60a5fa;
 }
+
 .hero-course-blue:hover .hero-course-tools {
   color: #bfdbfe;
 }
+
 .hero-course-blue:hover .hero-course-arrow {
   color: #60a5fa;
   opacity: 1;
@@ -600,18 +613,22 @@
   background: rgba(244, 63, 94, 0.08);
   border-color: rgba(244, 63, 94, 0.2);
 }
+
 .hero-course-rose:hover {
   background: linear-gradient(135deg, rgba(244, 63, 94, 0.14) 0%, rgba(13, 23, 48, 0.95) 100%);
   border-color: rgba(244, 63, 94, 0.5);
   box-shadow: 0 8px 24px -4px rgba(244, 63, 94, 0.25);
   transform: translateY(-2px);
 }
+
 .hero-course-rose:hover .hero-course-name {
   color: #fb7185;
 }
+
 .hero-course-rose:hover .hero-course-tools {
   color: #fecdd3;
 }
+
 .hero-course-rose:hover .hero-course-arrow {
   color: #fb7185;
   opacity: 1;
@@ -655,7 +672,7 @@
   flex-direction: column;
   padding: 19px 32px;
   display: flex;
-  box-shadow: 
+  box-shadow:
     0 18px 45px -10px rgba(0, 0, 0, 0.32),
     0 4px 16px rgba(0, 0, 0, 0.06),
     0 0 0 1px rgba(255, 255, 255, 0.4);
@@ -668,7 +685,7 @@
 }
 
 .enquiry-card:hover {
-  box-shadow: 
+  box-shadow:
     0 22px 55px -10px rgba(0, 0, 0, 0.38),
     0 6px 18px rgba(0, 0, 0, 0.09),
     0 0 0 1px rgba(255, 255, 255, 0.6);
@@ -699,7 +716,7 @@
   line-height: 1.2;
 }
 
-.enquiry-card > p {
+.enquiry-card>p {
   color: #64748b;
   margin: 3px 0 10px;
   font-size: 12px;
@@ -2023,6 +2040,7 @@
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   100% {
     transform: translate3d(-50%, 0, 0);
   }

@@ -48,14 +48,14 @@ export function Hero() {
 
           <h1>
             {/* Build Real Skills */}
-            Learn Today's Emerging
-            <br />
+            Learn Today's Emerging {" "}
+            {/* <br /> */}
             {/* For */}
-            Technologies{" "}
-             <span>
+            Technologies<br />
+            <span>
               {/* A Brighter Tomorrow */}
-               Turn Your Learning into Career Opportunities.
-              </span>
+              Turn Your Learning into Career Opportunities.
+            </span>
           </h1>
 
           <p>
