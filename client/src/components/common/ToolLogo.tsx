@@ -206,12 +206,20 @@ export function ToolLogo({
         {...props}
       >
         <rect width="32" height="32" rx="7" fill="#005A9C" />
-        <path d="M0 0h32L25 9H0z" fill="#008FD3" />
-        <path d="M4 3.5h9M4 6h6" stroke="#BAE6FD" strokeWidth="1.2" strokeLinecap="round" />
-        <rect x="6" y="12" width="20" height="15" rx="3" fill="#034170" stroke="#38BDF8" strokeWidth="1.2" />
-        <path d="M10 16.5h12M10 20h6" stroke="#93C5FD" strokeWidth="1.4" strokeLinecap="round" />
-        <circle cx="20" cy="20" r="3.2" fill="#F59E0B" stroke="#FEF3C7" strokeWidth="0.8" />
-        <path d="M20 18.4v3.2M18.8 19.5h2.4" stroke="#78350F" strokeWidth="0.8" strokeLinecap="round" />
+        <path d="M0 0h32L24 7H0z" fill="#008FD3" />
+        <path d="M4 3.5h7" stroke="#BAE6FD" strokeWidth="1.2" strokeLinecap="round" />
+        <text
+          x="16"
+          y="22"
+          textAnchor="middle"
+          fill="#FFFFFF"
+          fontSize="8.5"
+          fontWeight="900"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          letterSpacing="0.03em"
+        >
+          FICO
+        </text>
       </svg>
     );
   }
@@ -229,12 +237,20 @@ export function ToolLogo({
         {...props}
       >
         <rect width="32" height="32" rx="7" fill="#0F766E" />
-        <path d="M0 0h32L25 9H0z" fill="#0D9488" />
-        <path d="M4 3.5h9M4 6h6" stroke="#99F6E4" strokeWidth="1.2" strokeLinecap="round" />
-        <path d="M16 11.5l7 3.8-7 3.8-7-3.8 7-3.8z" fill="#2DD4BF" />
-        <path d="M9 15.3l7 3.8v7.6l-7-3.8v-7.6z" fill="#14B8A6" />
-        <path d="M23 15.3l-7 3.8v7.6l7-3.8v-7.6z" fill="#0D9488" />
-        <path d="M16 19.1v7.6" stroke="#5EEAD4" strokeWidth="0.9" />
+        <path d="M0 0h32L24 7H0z" fill="#0D9488" />
+        <path d="M4 3.5h7" stroke="#99F6E4" strokeWidth="1.2" strokeLinecap="round" />
+        <text
+          x="16"
+          y="23"
+          textAnchor="middle"
+          fill="#FFFFFF"
+          fontSize="12.5"
+          fontWeight="900"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          letterSpacing="0.04em"
+        >
+          MM
+        </text>
       </svg>
     );
   }
@@ -252,12 +268,20 @@ export function ToolLogo({
         {...props}
       >
         <rect width="32" height="32" rx="7" fill="#C2410C" />
-        <path d="M0 0h32L25 9H0z" fill="#EA580C" />
-        <path d="M4 3.5h9M4 6h6" stroke="#FED7AA" strokeWidth="1.2" strokeLinecap="round" />
-        <path d="M7 14h3.5l3 7.5h8l2.5-5.5H12" stroke="#FDBA74" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="14" cy="24.5" r="1.8" fill="#FDBA74" />
-        <circle cx="20" cy="24.5" r="1.8" fill="#FDBA74" />
-        <path d="M16.5 12l3.5-3m0 0h-2.5m2.5 0v2.5" stroke="#4ADE80" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M0 0h32L24 7H0z" fill="#EA580C" />
+        <path d="M4 3.5h7" stroke="#FED7AA" strokeWidth="1.2" strokeLinecap="round" />
+        <text
+          x="16"
+          y="23"
+          textAnchor="middle"
+          fill="#FFFFFF"
+          fontSize="12.5"
+          fontWeight="900"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          letterSpacing="0.04em"
+        >
+          SD
+        </text>
       </svg>
     );
   }
@@ -275,11 +299,20 @@ export function ToolLogo({
         {...props}
       >
         <rect width="32" height="32" rx="7" fill="#3730A3" />
-        <path d="M0 0h32L25 9H0z" fill="#4F46E5" />
-        <path d="M4 3.5h9M4 6h6" stroke="#C7D2FE" strokeWidth="1.2" strokeLinecap="round" />
-        <path d="M11 14.5l-4 4 4 4" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M21 14.5l4 4-4 4" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M18 13.5l-3.5 10" stroke="#A5B4FC" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M0 0h32L24 7H0z" fill="#4F46E5" />
+        <path d="M4 3.5h7" stroke="#C7D2FE" strokeWidth="1.2" strokeLinecap="round" />
+        <text
+          x="16"
+          y="22"
+          textAnchor="middle"
+          fill="#FFFFFF"
+          fontSize="8"
+          fontWeight="900"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          letterSpacing="0.03em"
+        >
+          ABAP
+        </text>
       </svg>
     );
   }

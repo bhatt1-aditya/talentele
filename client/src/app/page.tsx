@@ -5,6 +5,7 @@ import { HomeFeatures } from "@/components/home/HomeFeatures";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomePlacements } from "@/components/home/HomePlacements";
 import { HomeTestimonials } from "@/components/home/HomeTestimonials";
+import { GoogleReviews } from "@/components/home/GoogleReviews";
 import { FinalCta } from "@/components/home/FinalCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { generalFaqs } from "@/data/faqs";
@@ -40,7 +41,10 @@ export default function HomePage() {
       {/* 6. Expert Mentors & Faculty */}
       <HomeTestimonials />
 
-      {/* 7. General FAQs */}
+      {/* 7. Google Reviews & Student Testimonials */}
+      <GoogleReviews />
+
+      {/* 8. General FAQs */}
       <HomeFAQ />
 
       {/* 8. High-Impact Final Call to Action */}
