@@ -62,7 +62,7 @@ export const featuredPrograms: ProgramItem[] = [
     duration: "10 + 2 Months duration",
   },
   {
-    title: "SAP - ERP",
+    title: "SAP - FICO, MM, ABAP, SD",
     category: "Enterprise ERP",
     description: "Build an enterprise consulting career with hands-on SAP configuration across FICO, MM, SD & ABAP.",
     skills: ["SAP FICO", "SAP MM", "SAP SD", "SAP ABAP"],

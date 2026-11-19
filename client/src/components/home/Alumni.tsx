@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "@/components/common/Icons";
@@ -10,6 +10,7 @@ import { SectionHeading } from "./SectionHeading";
 
 export function Alumni() {
   const rowRef = useRef<HTMLDivElement>(null);
+  const isHoveredRef = useRef(false);
 
   function scroll(dir: "left" | "right") {
     if (rowRef.current) {
@@ -19,6 +20,42 @@ export function Alumni() {
       });
     }
   }
+
+  // Smooth continuous auto-scroll with pause on hover
+  useEffect(() => {
+    const el = rowRef.current;
+    if (!el) return;
+
+    let animId: number;
+    let lastTime = performance.now();
+
+    const step = (time: number) => {
+      const delta = time - lastTime;
+      lastTime = time;
+
+      if (!isHoveredRef.current && el) {
+        // Move smoothly at ~36px per second
+        el.scrollLeft += (delta / 1000) * 36;
+
+        // When scrolled past half the duplicated list, reset seamlessly
+        const half = el.scrollWidth / 3;
+        if (el.scrollLeft >= half) {
+          el.scrollLeft -= half;
+        }
+      }
+      animId = requestAnimationFrame(step);
+    };
+
+    animId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  // Triple the items for a seamless, glitch-free continuous loop across all screen sizes
+  const displayPlacements = [
+    ...verifiedPlacements,
+    ...verifiedPlacements,
+    ...verifiedPlacements,
+  ];
 
   return (
     <section className="section-home alumni-section" id="alumni">
@@ -48,28 +85,62 @@ export function Alumni() {
           </div>
         </div>
 
-        {/* Real Alumni Profiles Carousel */}
-        <div className="alumni-row" ref={rowRef} aria-label="Alumni success gallery">
-          {verifiedPlacements.map((alumnus) => (
-            <Link
-              key={alumnus.id}
-              href="/placement/"
-              className="alumni-profile"
-              title={`${alumnus.studentName} — ${alumnus.designation} at ${alumnus.company}`}
-            >
-              <Image
-                src={alumnus.photo}
-                alt={`${alumnus.studentName}, placed at ${alumnus.company}`}
-                width={76}
-                height={76}
-              />
-              <span className="alumni-name">{alumnus.studentName.split(" ")[0]}</span>
-              <span className="alumni-company">{alumnus.companyShort || alumnus.company}</span>
+        {/* Real Alumni Profiles Carousel with Auto-Scroll & Interactive Tooltips */}
+        <div
+          className="alumni-carousel-wrapper"
+          onMouseEnter={() => {
+            isHoveredRef.current = true;
+          }}
+          onMouseLeave={() => {
+            isHoveredRef.current = false;
+          }}
+          onTouchStart={() => {
+            isHoveredRef.current = true;
+          }}
+          onTouchEnd={() => {
+            isHoveredRef.current = false;
+          }}
+        >
+          <div
+            className="alumni-row"
+            ref={rowRef}
+            aria-label="Alumni success gallery"
+          >
+            {displayPlacements.map((alumnus, idx) => (
+              <Link
+                key={`${alumnus.id}-${idx}`}
+                href="/placement/"
+                className="alumni-profile"
+              >
+                <div className="alumni-avatar-wrapper">
+                  <Image
+                    src={alumnus.photo}
+                    alt={`${alumnus.studentName}, placed at ${alumnus.company}`}
+                    width={76}
+                    height={76}
+                  />
+                  {/* Floating Animated Tooltip */}
+                  <div className="alumni-tooltip" aria-hidden="true">
+                    <strong>{alumnus.studentName}</strong>
+                    <span className="tooltip-role">{alumnus.designation}</span>
+                    <span className="tooltip-company">
+                      {alumnus.companyShort || alumnus.company}
+                    </span>
+                  </div>
+
+                </div>
+                <span className="alumni-name">
+                  {alumnus.studentName.split(" ")[0]}
+                </span>
+                <span className="alumni-company">
+                  {alumnus.companyShort || alumnus.company}
+                </span>
+              </Link>
+            ))}
+            <Link className="more-alumni" href="/placement/">
+              +<small>View All Placements</small>
             </Link>
-          ))}
-          <Link className="more-alumni" href="/placement/">
-            +<small>View All Placements</small>
-          </Link>
+          </div>
         </div>
 
         {/* Real Hiring Company Logos Grid */}

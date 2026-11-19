@@ -1876,14 +1876,30 @@
   line-height: 1.65;
 }
 
-/* Alumni Section */
+/* Alumni Section Carousel & Animated Profiles */
+.alumni-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  padding-top: 48px;
+  margin-top: -32px;
+  padding-bottom: 8px;
+}
+
 .alumni-row {
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   align-items: flex-start;
   gap: 20px;
-  padding: 5px 3px 22px;
+  padding: 10px 4px 18px;
   display: flex;
   overflow-x: auto;
+}
+
+.alumni-row::-webkit-scrollbar {
+  display: none;
 }
 
 .alumni-profile {
@@ -1893,22 +1909,99 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alumni-profile:hover {
+  transform: translateY(-4px);
+}
+
+.alumni-avatar-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .alumni-profile img {
   width: 76px;
   height: 76px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   object-fit: cover;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 2.5px solid #e2e8f0;
+  border-radius: 14px;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .alumni-profile:hover img {
-  transform: translateY(-2px);
+  transform: scale(1.08);
   border-color: var(--red);
-  box-shadow: 0 6px 14px rgba(245, 45, 70, 0.18);
+  box-shadow: 0 10px 24px rgba(245, 45, 70, 0.28), 0 0 0 3px rgba(245, 45, 70, 0.15);
+}
+
+/* Floating Animated Tooltip */
+.alumni-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #071225;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.alumni-tooltip strong {
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.tooltip-role {
+  color: #c5cddd;
+  font-size: 10px;
+  margin-top: 1px;
+}
+
+.tooltip-company {
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+.alumni-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #071225 transparent transparent transparent;
+}
+
+.alumni-profile:hover .alumni-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 .alumni-name {
@@ -1919,6 +2012,11 @@
   display: block;
   white-space: nowrap;
   line-height: 1.25;
+  transition: color 0.2s ease;
+}
+
+.alumni-profile:hover .alumni-name {
+  color: var(--navy);
 }
 
 .alumni-company {
@@ -1937,7 +2035,7 @@
   height: 76px;
   color: var(--red);
   text-align: center;
-  border-radius: 12px;
+  border-radius: 14px;
   flex-direction: column;
   flex: 0 0 76px;
   justify-content: center;
@@ -1945,15 +2043,16 @@
   font-size: 20px;
   display: flex;
   text-decoration: none;
-  transition: all 0.18s;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .more-alumni:hover {
   background: #fff0f2;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(245, 45, 70, 0.15);
+  transform: translateY(-4px) scale(1.06);
+  border-style: solid;
+  box-shadow: 0 8px 20px rgba(245, 45, 70, 0.22);
 }
 
 .more-alumni small {
