@@ -52,6 +52,11 @@ export function CourseCard({
           <span className="absolute left-3.5 top-3.5 rounded bg-white/95 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#101828] shadow-xs">
             {course.category}
           </span>
+          {course.highlighted && (
+            <span className="absolute right-3.5 top-3.5 rounded-full bg-red-600 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-xs">
+              {course.badge || "Featured"}
+            </span>
+          )}
         </div>
 
         <div className={cn("flex flex-1 flex-col p-6", wide && "md:p-8")}>

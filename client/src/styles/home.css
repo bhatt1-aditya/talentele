@@ -219,11 +219,44 @@
   padding: 8px 10px;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  border: 1px solid transparent;
 }
 
 .dropdown-course-item:hover {
   background: rgba(255, 255, 255, 0.07);
+}
+
+.dropdown-course-item.is-highlighted {
+  background: rgba(245, 45, 70, 0.08);
+  border-color: rgba(245, 45, 70, 0.28);
+}
+
+.dropdown-course-item.is-highlighted:hover {
+  background: rgba(245, 45, 70, 0.16);
+  border-color: rgba(245, 45, 70, 0.5);
+  transform: translateX(2px);
+}
+
+.dropdown-course-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.dropdown-badge {
+  font-size: 8.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1.5px 5.5px;
+  border-radius: 4px;
+  background: var(--red);
+  color: #ffffff;
+  line-height: 1.2;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(245, 45, 70, 0.35);
 }
 
 .dropdown-course-item strong {
@@ -231,6 +264,11 @@
   font-weight: 600;
   color: #fff;
   line-height: 1.3;
+}
+
+.dropdown-course-item.is-highlighted strong {
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .dropdown-course-item:hover strong {
@@ -245,6 +283,10 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.dropdown-course-item.is-highlighted span {
+  color: #cbd5e1;
 }
 
 .dropdown-footer {
@@ -2522,12 +2564,36 @@
   .mobile-course-sublinks a {
     color: #c5cddd !important;
     font-size: 13px !important;
-    padding: 6px 0 !important;
+    padding: 6px 8px !important;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+  }
+
+  .mobile-course-sublinks a.is-highlighted {
+    color: #ffffff !important;
+    background: rgba(245, 45, 70, 0.1) !important;
+    border-left: 2px solid var(--red);
+    font-weight: 600;
+  }
+
+  .mobile-highlight-badge {
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 1.5px 5px;
+    border-radius: 4px;
+    background: var(--red);
+    color: #ffffff;
+    line-height: 1.2;
   }
 
   .mobile-course-sublinks a:hover {
     color: #fff !important;
+    background: rgba(255, 255, 255, 0.06);
   }
 
   .mobile-all-courses-link {

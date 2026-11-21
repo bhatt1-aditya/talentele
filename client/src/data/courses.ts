@@ -54,6 +54,8 @@ export type Course = {
   faqs: FaqItem[];
   related: CourseSlug[];
   seo: { title: string; description: string };
+  highlighted?: boolean;
+  badge?: string;
 };
 
 const commonFaqs = (name: string): FaqItem[] => [
@@ -80,7 +82,9 @@ export const courses: Course[] = [
     title: "Data Analytics",
     shortTitle: "Data Analytics",
     category: "Analytics",
-    tagline: "Industry-specific skills to analyse, interpret and visualise data.",
+    highlighted: true,
+    badge: "Popular",
+    tagline: "Master Excel, SQL, Power BI & Python for corporate analyst careers.",
     summary:
       "Learn to clean, query, analyse and present data with Excel, SQL, Python and dashboarding tools — the core toolkit of an analyst.",
     intro:
@@ -161,7 +165,9 @@ export const courses: Course[] = [
     title: "Business Analytics",
     shortTitle: "Business Analytics",
     category: "Analytics",
-    tagline: "Use analytics to transform business decisions.",
+    highlighted: true,
+    badge: "Trending",
+    tagline: "Bridge business strategy and enterprise BI dashboard analytics.",
     summary:
       "Connect data to decisions: frame business problems, analyse performance metrics and communicate recommendations to stakeholders.",
     intro:
@@ -229,7 +235,9 @@ export const courses: Course[] = [
     title: "Data Science",
     shortTitle: "Data Science",
     category: "Data Science & AI",
-    tagline: "Python programming, machine learning algorithms and statistics.",
+    highlighted: true,
+    badge: "High Demand",
+    tagline: "Machine learning, predictive models & Python for advanced AI roles.",
     summary:
       "Build a foundation in Python, statistics and machine learning, and learn to develop and evaluate predictive models.",
     intro:
@@ -420,7 +428,9 @@ export const courses: Course[] = [
     title: "Python Programming",
     shortTitle: "Python",
     category: "Core Skills",
-    tagline: "A coding course for beginners starting their programming journey.",
+    highlighted: true,
+    badge: "Core Skill",
+    tagline: "Complete programming fundamentals, data structures and automation.",
     summary:
       "Start programming with Python: syntax, logic, data structures and writing small programs — the foundation for analytics, data science and automation.",
     intro:

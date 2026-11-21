@@ -164,10 +164,20 @@ export function Header() {
                               <li key={c.slug}>
                                 <Link
                                   href={`/${c.slug}-course/`}
-                                  className="dropdown-course-item"
+                                  className={cn(
+                                    "dropdown-course-item",
+                                    c.highlighted && "is-highlighted"
+                                  )}
                                   onClick={() => setIsDropdownOpen(false)}
                                 >
-                                  <strong>{c.title}</strong>
+                                  <div className="dropdown-course-header">
+                                    <strong>{c.title}</strong>
+                                    {c.highlighted && (
+                                      <span className="dropdown-badge">
+                                        {c.badge || "Popular"}
+                                      </span>
+                                    )}
+                                  </div>
                                   <span>{c.tagline}</span>
                                 </Link>
                               </li>
@@ -190,10 +200,20 @@ export function Header() {
                               <li key={c.slug}>
                                 <Link
                                   href={`/${c.slug}-course/`}
-                                  className="dropdown-course-item"
+                                  className={cn(
+                                    "dropdown-course-item",
+                                    c.highlighted && "is-highlighted"
+                                  )}
                                   onClick={() => setIsDropdownOpen(false)}
                                 >
-                                  <strong>{c.title}</strong>
+                                  <div className="dropdown-course-header">
+                                    <strong>{c.title}</strong>
+                                    {c.highlighted && (
+                                      <span className="dropdown-badge">
+                                        {c.badge || "Popular"}
+                                      </span>
+                                    )}
+                                  </div>
                                   <span>{c.tagline}</span>
                                 </Link>
                               </li>
@@ -216,10 +236,20 @@ export function Header() {
                               <li key={c.slug}>
                                 <Link
                                   href={`/${c.slug}-course/`}
-                                  className="dropdown-course-item"
+                                  className={cn(
+                                    "dropdown-course-item",
+                                    c.highlighted && "is-highlighted"
+                                  )}
                                   onClick={() => setIsDropdownOpen(false)}
                                 >
-                                  <strong>{c.title}</strong>
+                                  <div className="dropdown-course-header">
+                                    <strong>{c.title}</strong>
+                                    {c.highlighted && (
+                                      <span className="dropdown-badge">
+                                        {c.badge || "Popular"}
+                                      </span>
+                                    )}
+                                  </div>
                                   <span>{c.tagline}</span>
                                 </Link>
                               </li>
@@ -267,9 +297,18 @@ export function Header() {
                           <Link
                             key={c.slug}
                             href={`/${c.slug}-course/`}
+                            className={cn(
+                              "mobile-course-item",
+                              c.highlighted && "is-highlighted"
+                            )}
                             onClick={() => setIsMenuOpen(false)}
                           >
                             <span>{c.title}</span>
+                            {c.highlighted && (
+                              <span className="mobile-highlight-badge">
+                                {c.badge || "Popular"}
+                              </span>
+                            )}
                           </Link>
                         ))}
                         <Link
