@@ -84,7 +84,7 @@ export const courses: Course[] = [
     category: "Analytics",
     highlighted: true,
     badge: "Popular",
-    tagline: "Master Excel, SQL, Power BI & Python for corporate analyst careers.",
+    tagline: "",
     summary:
       "Learn to clean, query, analyse and present data with Excel, SQL, Python and dashboarding tools — the core toolkit of an analyst.",
     intro:
@@ -167,7 +167,7 @@ export const courses: Course[] = [
     category: "Analytics",
     highlighted: true,
     badge: "Trending",
-    tagline: "Bridge business strategy and enterprise BI dashboard analytics.",
+    tagline: "",
     summary:
       "Connect data to decisions: frame business problems, analyse performance metrics and communicate recommendations to stakeholders.",
     intro:
@@ -237,7 +237,7 @@ export const courses: Course[] = [
     category: "Data Science & AI",
     highlighted: true,
     badge: "High Demand",
-    tagline: "Machine learning, predictive models & Python for advanced AI roles.",
+    tagline: "",
     summary:
       "Build a foundation in Python, statistics and machine learning, and learn to develop and evaluate predictive models.",
     intro:
@@ -430,7 +430,7 @@ export const courses: Course[] = [
     category: "Core Skills",
     highlighted: true,
     badge: "Core Skill",
-    tagline: "Complete programming fundamentals, data structures and automation.",
+    tagline: "",
     summary:
       "Start programming with Python: syntax, logic, data structures and writing small programs — the foundation for analytics, data science and automation.",
     intro:
