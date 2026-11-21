@@ -4,6 +4,7 @@ import { HomeFAQ } from "@/components/home/HomeFAQ";
 import { HomeFeatures } from "@/components/home/HomeFeatures";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomePlacements } from "@/components/home/HomePlacements";
+import { HallOfExcellence } from "@/components/home/HallOfExcellence";
 import { HomeTestimonials } from "@/components/home/HomeTestimonials";
 import { GoogleReviews } from "@/components/home/GoogleReviews";
 import { FinalCta } from "@/components/home/FinalCta";
@@ -38,7 +39,10 @@ export default function HomePage() {
       {/* 5. Alumni Community & Hiring Companies */}
       <HomePlacements />
 
-      {/* 6. Expert Mentors & Faculty */}
+      {/* 6. Hall of Excellence Showcase */}
+      <HallOfExcellence />
+
+      {/* 7. Expert Mentors & Faculty */}
       <HomeTestimonials />
 
       {/* 7. Google Reviews & Student Testimonials */}
