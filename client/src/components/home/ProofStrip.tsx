@@ -1,10 +1,32 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { site } from "@/data/site";
 
-const proofItems = [
+interface ProofItem {
+  target: number;
+  isDecimal: boolean;
+  suffix: string;
+  defaultDisplay: string;
+  stars: boolean;
+  label: string;
+  sub: string;
+  href: string;
+  icon: string;
+  iconAlt: string;
+  iconWidth: number;
+  iconHeight: number;
+}
+
+const proofItems: ProofItem[] = [
   {
-    score: "4.9",
+    target: 4.9,
+    isDecimal: true,
+    suffix: "",
+    defaultDisplay: "4.9",
     stars: true,
     label: "Google Reviews",
     sub: "140+ Verified Ratings",
@@ -15,7 +37,10 @@ const proofItems = [
     iconHeight: 28,
   },
   {
-    score: "4.8",
+    target: 4.8,
+    isDecimal: true,
+    suffix: "",
+    defaultDisplay: "4.8",
     stars: true,
     label: "Justdial",
     sub: "Top Rated in Bhubaneswar",
@@ -26,7 +51,10 @@ const proofItems = [
     iconHeight: 32,
   },
   {
-    score: "4.9",
+    target: 4.9,
+    isDecimal: true,
+    suffix: "",
+    defaultDisplay: "4.9",
     stars: true,
     label: "AmbitionBox",
     sub: "Top Career Institute",
@@ -37,7 +65,10 @@ const proofItems = [
     iconHeight: 30,
   },
   {
-    score: "10K+",
+    target: 10,
+    isDecimal: false,
+    suffix: "K+",
+    defaultDisplay: "10K+",
     stars: false,
     label: "YouTube Community",
     sub: "Free Masterclasses & Projects",
@@ -50,10 +81,92 @@ const proofItems = [
 ];
 
 export function ProofStrip() {
+  const pathname = usePathname();
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [scores, setScores] = useState<string[]>(() =>
+    proofItems.map((item) => item.defaultDisplay)
+  );
+
+  // Reset values when route changes (e.g., navigating away and returning to home)
+  useEffect(() => {
+    setIsInView(false);
+    setIsCompleted(false);
+    setScores(proofItems.map((item) => (item.isDecimal ? "0.0" : "0" + item.suffix)));
+  }, [pathname]);
+
+  // Continuously observe visibility so animation plays whenever the section is reached
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          // Reset when scrolled out of view so it animates again when reached
+          setIsInView(false);
+          setIsCompleted(false);
+          setScores(proofItems.map((item) => (item.isDecimal ? "0.0" : "0" + item.suffix)));
+        }
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -20px 0px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Trigger count-up animation whenever section enters the viewport
+  useEffect(() => {
+    if (!isInView) return;
+
+    setIsCompleted(false);
+    const duration = 1600; // ms
+    const startTime = performance.now();
+
+    function easeOutQuart(x: number): number {
+      return 1 - Math.pow(1 - x, 4);
+    }
+
+    let animId: number;
+
+    const update = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const eased = easeOutQuart(progress);
+
+      setScores(
+        proofItems.map((item) => {
+          if (progress >= 1) return item.defaultDisplay;
+          const current = eased * item.target;
+          return item.isDecimal
+            ? current.toFixed(1) + item.suffix
+            : Math.floor(current) + item.suffix;
+        })
+      );
+
+      if (progress < 1) {
+        animId = requestAnimationFrame(update);
+      } else {
+        setIsCompleted(true);
+      }
+    };
+
+    animId = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(animId);
+  }, [isInView]);
+
   return (
-    <section className="proof-strip" aria-label="Ratings and student community verifications">
+    <section
+      ref={sectionRef}
+      className={`proof-strip ${isCompleted ? "proof-animated" : ""}`}
+      aria-label="Ratings and student community verifications"
+    >
       <div className="shell proof-grid">
-        {proofItems.map((item) => (
+        {proofItems.map((item, idx) => (
           <Link
             key={item.label}
             href={item.href}
@@ -73,9 +186,11 @@ export function ProofStrip() {
             </span>
             <div className="proof-content">
               <div className="proof-score-row">
-                <strong className="proof-score">{item.score}</strong>
+                <strong className={`proof-score ${isCompleted ? "completed" : ""}`}>
+                  {scores[idx]}
+                </strong>
                 {item.stars && (
-                  <span className="proof-stars" aria-hidden="true">
+                  <span className={`proof-stars ${isCompleted ? "visible" : ""}`} aria-hidden="true">
                     ★★★★★
                   </span>
                 )}
