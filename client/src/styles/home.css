@@ -1,4 +1,5 @@
 :root {
+  --font-sans: "Inter", sans-serif;
   --navy: #071225;
   --deep: #0b1730;
   --red: #f52d46;
@@ -18,6 +19,15 @@
 .shell {
   width: var(--shell);
   margin-inline: auto;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Inter", sans-serif;
 }
 
 /* Header */

@@ -24,9 +24,9 @@
   --color-muted-dark: #a7a7b2;
   --color-success: #13795b;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-archivo), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-sans: "Inter", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Inter", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -49,20 +49,31 @@
     scroll-padding-top: 6rem;
   }
 
+  html,
   body {
     background: var(--color-paper);
     color: var(--color-ink);
-    font-family: var(--font-sans);
+    font-family: "Inter", sans-serif;
     text-rendering: optimizeLegibility;
   }
 
   h1,
   h2,
   h3,
-  h4 {
-    font-family: var(--font-display);
+  h4,
+  h5,
+  h6 {
+    font-family: "Inter", sans-serif;
     letter-spacing: -0.02em;
     text-wrap: balance;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: "Inter", sans-serif;
   }
 
   p {
