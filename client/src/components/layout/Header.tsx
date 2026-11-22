@@ -151,8 +151,10 @@ export function Header() {
                     <div className="dropdown-grid">
                       {/* Column 1: Analytics & BI */}
                       <div className="dropdown-col">
-                        <div className="dropdown-col-header">
-                          <ChartColumn width={15} height={15} className="text-cyan-400" />
+                        <div className="dropdown-col-header header-analytics">
+                          <span className="dropdown-col-icon-wrap">
+                            <ChartColumn width={14} height={14} />
+                          </span>
                           <span>Analytics & BI</span>
                         </div>
                         <ul className="dropdown-list">
@@ -164,21 +166,11 @@ export function Header() {
                               <li key={c.slug}>
                                 <Link
                                   href={`/${c.slug}-course/`}
-                                  className={cn(
-                                    "dropdown-course-item",
-                                    c.highlighted && "is-highlighted"
-                                  )}
+                                  className="dropdown-course-item"
                                   onClick={() => setIsDropdownOpen(false)}
                                 >
-                                  <div className="dropdown-course-header">
-                                    <strong>{c.title}</strong>
-                                    {c.highlighted && (
-                                      <span className="dropdown-badge">
-                                        {c.badge || "Popular"}
-                                      </span>
-                                    )}
-                                  </div>
-                                  <span>{c.tagline}</span>
+                                  <strong className="dropdown-course-title">{c.title}</strong>
+                                  {c.tagline ? <span className="dropdown-course-desc">{c.tagline}</span> : null}
                                 </Link>
                               </li>
                             ))}
@@ -187,34 +179,30 @@ export function Header() {
 
                       {/* Column 2: Data Science & AI */}
                       <div className="dropdown-col">
-                        <div className="dropdown-col-header">
-                          <Sparkles width={15} height={15} className="text-pink-400" />
+                        <div className="dropdown-col-header header-datascience">
+                          <span className="dropdown-col-icon-wrap">
+                            <Sparkles width={14} height={14} />
+                          </span>
                           <span>Data Science & AI</span>
                         </div>
                         <ul className="dropdown-list">
                           {courses
                             .filter((c) =>
-                              ["data-science", "generative-ai", "python"].includes(c.slug)
+                              ["data-science", "python", "generative-ai"].includes(c.slug)
                             )
+                            .sort((a, b) => {
+                              const order = ["data-science", "python", "generative-ai"];
+                              return order.indexOf(a.slug) - order.indexOf(b.slug);
+                            })
                             .map((c) => (
                               <li key={c.slug}>
                                 <Link
                                   href={`/${c.slug}-course/`}
-                                  className={cn(
-                                    "dropdown-course-item",
-                                    c.highlighted && "is-highlighted"
-                                  )}
+                                  className="dropdown-course-item"
                                   onClick={() => setIsDropdownOpen(false)}
                                 >
-                                  <div className="dropdown-course-header">
-                                    <strong>{c.title}</strong>
-                                    {c.highlighted && (
-                                      <span className="dropdown-badge">
-                                        {c.badge || "Popular"}
-                                      </span>
-                                    )}
-                                  </div>
-                                  <span>{c.tagline}</span>
+                                  <strong className="dropdown-course-title">{c.title}</strong>
+                                  {c.tagline ? <span className="dropdown-course-desc">{c.tagline}</span> : null}
                                 </Link>
                               </li>
                             ))}
@@ -223,8 +211,10 @@ export function Header() {
 
                       {/* Column 3: Enterprise & Core */}
                       <div className="dropdown-col">
-                        <div className="dropdown-col-header">
-                          <BriefcaseBusiness width={15} height={15} className="text-emerald-400" />
+                        <div className="dropdown-col-header header-enterprise">
+                          <span className="dropdown-col-icon-wrap">
+                            <BriefcaseBusiness width={14} height={14} />
+                          </span>
                           <span>Enterprise & Core</span>
                         </div>
                         <ul className="dropdown-list">
@@ -236,21 +226,11 @@ export function Header() {
                               <li key={c.slug}>
                                 <Link
                                   href={`/${c.slug}-course/`}
-                                  className={cn(
-                                    "dropdown-course-item",
-                                    c.highlighted && "is-highlighted"
-                                  )}
+                                  className="dropdown-course-item"
                                   onClick={() => setIsDropdownOpen(false)}
                                 >
-                                  <div className="dropdown-course-header">
-                                    <strong>{c.title}</strong>
-                                    {c.highlighted && (
-                                      <span className="dropdown-badge">
-                                        {c.badge || "Popular"}
-                                      </span>
-                                    )}
-                                  </div>
-                                  <span>{c.tagline}</span>
+                                  <strong className="dropdown-course-title">{c.title}</strong>
+                                  {c.tagline ? <span className="dropdown-course-desc">{c.tagline}</span> : null}
                                 </Link>
                               </li>
                             ))}
@@ -297,18 +277,10 @@ export function Header() {
                           <Link
                             key={c.slug}
                             href={`/${c.slug}-course/`}
-                            className={cn(
-                              "mobile-course-item",
-                              c.highlighted && "is-highlighted"
-                            )}
+                            className="mobile-course-item"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             <span>{c.title}</span>
-                            {c.highlighted && (
-                              <span className="mobile-highlight-badge">
-                                {c.badge || "Popular"}
-                              </span>
-                            )}
                           </Link>
                         ))}
                         <Link

@@ -82,8 +82,6 @@ export const courses: Course[] = [
     title: "Data Analytics",
     shortTitle: "Data Analytics",
     category: "Analytics",
-    highlighted: true,
-    badge: "Popular",
     tagline: "",
     summary:
       "Learn to clean, query, analyse and present data with Excel, SQL, Python and dashboarding tools — the core toolkit of an analyst.",
@@ -165,8 +163,6 @@ export const courses: Course[] = [
     title: "Business Analytics",
     shortTitle: "Business Analytics",
     category: "Analytics",
-    highlighted: true,
-    badge: "Trending",
     tagline: "",
     summary:
       "Connect data to decisions: frame business problems, analyse performance metrics and communicate recommendations to stakeholders.",
@@ -235,8 +231,6 @@ export const courses: Course[] = [
     title: "Data Science",
     shortTitle: "Data Science",
     category: "Data Science & AI",
-    highlighted: true,
-    badge: "High Demand",
     tagline: "",
     summary:
       "Build a foundation in Python, statistics and machine learning, and learn to develop and evaluate predictive models.",
@@ -428,8 +422,6 @@ export const courses: Course[] = [
     title: "Python Programming",
     shortTitle: "Python",
     category: "Core Skills",
-    highlighted: true,
-    badge: "Core Skill",
     tagline: "",
     summary:
       "Start programming with Python: syntax, logic, data structures and writing small programs — the foundation for analytics, data science and automation.",
