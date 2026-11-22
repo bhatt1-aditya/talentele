@@ -299,7 +299,7 @@ export const courses: Course[] = [
     title: "Software Testing",
     shortTitle: "Software Testing",
     category: "Enterprise & QA",
-    tagline: "Manual and automation testing skills for quality-focused software careers.",
+    tagline: "",
     summary:
       "Learn how software is tested — from test design and defect reporting to automation and API testing used by QA teams.",
     intro:
@@ -360,7 +360,7 @@ export const courses: Course[] = [
     title: "SAP",
     shortTitle: "SAP",
     category: "Enterprise & QA",
-    tagline: "Build in-demand SAP skills for global careers.",
+    tagline: "",
     summary:
       "Understand how organisations run on SAP — core business processes, system navigation and module fundamentals for enterprise careers.",
     intro:
@@ -485,7 +485,7 @@ export const courses: Course[] = [
     title: "Advanced Excel",
     shortTitle: "Excel",
     category: "Core Skills",
-    tagline: "Spreadsheet skills that every analyst and business professional relies on.",
+    tagline: "",
     summary:
       "Go beyond the basics: formulas, lookups, pivot tables, charts and data cleaning techniques used in reporting and analysis.",
     intro:
@@ -539,7 +539,7 @@ export const courses: Course[] = [
     title: "SQL",
     shortTitle: "SQL",
     category: "Core Skills",
-    tagline: "Query and work with relational databases — the language of data.",
+    tagline: "",
     summary:
       "Learn to retrieve, combine and summarise data from relational databases with SQL — an essential skill for analysts and developers.",
     intro:
@@ -593,7 +593,7 @@ export const courses: Course[] = [
     title: "Microsoft Power BI",
     shortTitle: "Power BI",
     category: "Analytics",
-    tagline: "Data connection, transformation and interactive dashboards.",
+    tagline: "",
     summary:
       "Connect to data, shape it with Power Query, model it and publish interactive dashboards that teams can explore.",
     intro:
@@ -647,7 +647,7 @@ export const courses: Course[] = [
     title: "Generative AI",
     shortTitle: "Generative AI",
     category: "Data Science & AI",
-    tagline: "Understand and apply generative AI tools in real work.",
+    tagline: "",
     summary:
       "Learn how large language models and generative AI tools work, how to use them responsibly, and how to apply them to analysis and productivity tasks.",
     intro:
