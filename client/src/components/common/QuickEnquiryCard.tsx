@@ -119,11 +119,12 @@ export function QuickEnquiryCard({
       <input type="hidden" name="consent" value="on" />
       <input
         type="text"
-        name="company_website"
+        name="_hp_check"
         tabIndex={-1}
         autoComplete="off"
         className="hidden"
         aria-hidden="true"
+        defaultValue=""
       />
 
       <span className="form-badge">

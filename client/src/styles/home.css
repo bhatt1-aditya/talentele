@@ -440,6 +440,41 @@ textarea {
   font-size: 12px;
 }
 
+/* Header Login Button */
+.header-login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.header-login-btn:hover {
+  background: rgba(245, 45, 70, 0.16);
+  border-color: rgba(245, 45, 70, 0.6);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(245, 45, 70, 0.3);
+}
+
+.header-login-btn svg {
+  color: #f52d46;
+  transition: transform 0.2s ease;
+}
+
+.header-login-btn:hover svg {
+  transform: scale(1.15);
+}
+
 .menu-button {
   color: #fff;
   background: transparent;

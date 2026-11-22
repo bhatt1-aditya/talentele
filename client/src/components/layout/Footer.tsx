@@ -1,6 +1,8 @@
-import { cacheLife } from "next/cache";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   ArrowUpRight,
   Clock,
@@ -11,13 +13,16 @@ import {
 import { courses } from "@/data/courses";
 import { addressLines, navigation, site } from "@/data/site";
 
-async function CurrentYear() {
-  "use cache";
-  cacheLife("days");
-  return <>{new Date().getFullYear()}</>;
-}
-
 export function Footer() {
+  const pathname = usePathname();
+
+  // Hide footer when in admin dashboard
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
+  const currentYear = 2026;
+
   return (
     <footer className="site-footer" id="contact" aria-labelledby="footer-title">
       <h2 id="footer-title" className="sr-only">
@@ -123,7 +128,7 @@ export function Footer() {
       {/* Footer Bottom Bar */}
       <div className="shell footer-bottom">
         <span>
-          © <CurrentYear /> Talentele. All rights reserved.
+          © {currentYear} Talentele. All rights reserved.
         </span>
 
         <div>

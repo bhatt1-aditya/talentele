@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import defaultCourseImg from "@/assets/images/courses/data-analytics.jpg";
 import { ArrowRight } from "@/components/common/Icons";
 import type { Course } from "@/data/courses";
 import { cn } from "@/lib/utilities";
@@ -38,10 +39,10 @@ export function CourseCard({
           )}
         >
           <Image
-            src={course.image}
-            alt={course.imageAlt}
+            src={course.image || defaultCourseImg}
+            alt={course.imageAlt || course.title}
             fill
-            placeholder="blur"
+            placeholder={course.image ? "blur" : "empty"}
             sizes={
               wide
                 ? "(min-width: 768px) 40vw, 100vw"

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "cohort-da",
+    "slug": "data-analytics",
+    "courseTitle": "Data Analytics Master Program",
+    "category": "Analytics & BI",
+    "summary": "Comprehensive practical training covering SQL query mastery, Advanced Excel modeling, and enterprise Power BI dashboard architecture.",
+    "tools": [
+      "SQL",
+      "Power BI",
+      "Excel",
+      "Python",
+      "DAX"
+    ],
+    "schedule": "Weekday & Weekend Batches",
+    "duration": "16–20 Weeks",
+    "mode": "Classroom (Nayapalli) & Live Online",
+    "status": "Admissions Open",
+    "statusTone": "emerald",
+    "highlights": "1-on-1 Doubt Sessions • 8 Capstone Projects • ATS Resume & Mocks",
+    "enrolledCount": 18,
+    "maxSeats": 25,
+    "startDate": "2026-12-05"
+  },
+  {
+    "id": "cohort-ba",
+    "slug": "business-analytics",
+    "courseTitle": "Business Analytics & Intelligence",
+    "category": "Analytics & BI",
+    "summary": "Bridge executive business strategy and data engineering with exploratory analytics, KPIs, predictive regression, and Tableau visualization.",
+    "tools": [
+      "Power BI",
+      "Tableau",
+      "SQL",
+      "Excel",
+      "Alteryx"
+    ],
+    "schedule": "Evening Cohort (Mon–Thu)",
+    "duration": "14–16 Weeks",
+    "mode": "Hybrid (Nayapalli Lab + Online)",
+    "status": "Fast-Filling Cohort",
+    "statusTone": "amber",
+    "highlights": "Harvard Case Studies • Executive Reporting • Mock Consulting Pitches",
+    "enrolledCount": 21,
+    "maxSeats": 25,
+    "startDate": "2026-12-08"
+  },
+  {
+    "id": "cohort-ds",
+    "slug": "data-science",
+    "courseTitle": "Data Science & Machine Learning",
+    "category": "Data Science & AI",
+    "summary": "End-to-end data science lifecycle from exploratory Python data wrangling to supervised ML models, NLP, and containerized API deployment.",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-Learn",
+      "TensorFlow",
+      "MLflow"
+    ],
+    "schedule": "Weekend Intensive",
+    "duration": "24 Weeks",
+    "mode": "Classroom & Live Hands-on Labs",
+    "status": "Upcoming Batch",
+    "statusTone": "blue",
+    "highlights": "Kaggle Mentorship • End-to-End ML Pipelines • AWS Model Deployment",
+    "enrolledCount": 14,
+    "maxSeats": 20,
+    "startDate": "2026-12-12"
+  },
+  {
+    "id": "cohort-pbi",
+    "slug": "power-bi",
+    "courseTitle": "Microsoft Power BI",
+    "category": "Analytics & BI",
+    "summary": "Master enterprise Power BI modeling, advanced DAX calculated measures, Power Query ETL pipelines, and corporate Power BI Service governance.",
+    "tools": [
+      "Power BI Desktop",
+      "DAX Studio",
+      "Power Query",
+      "Fabric"
+    ],
+    "schedule": "Weekend Specialized Track",
+    "duration": "8–10 Weeks",
+    "mode": "Live Online & Nayapalli Lab",
+    "status": "Seats Limited",
+    "statusTone": "amber",
+    "highlights": "PL-300 Certification Prep • Real Finance & Retail Datasets",
+    "enrolledCount": 19,
+    "maxSeats": 20,
+    "startDate": "2026-12-01"
+  },
+  {
+    "id": "cohort-sap",
+    "slug": "sap",
+    "courseTitle": "SAP ERP - FICO, MM, ABAP, SD",
+    "category": "Enterprise & Core",
+    "summary": "Deep enterprise consulting skills across SAP S/4HANA financial accounting (FICO), procurement (MM), sales distribution (SD), and ABAP programming.",
+    "tools": [
+      "SAP GUI",
+      "SAP S/4HANA",
+      "FICO",
+      "MM",
+      "ABAP",
+      "SD"
+    ],
+    "schedule": "Morning & Weekend Batches",
+    "duration": "5–7 Months",
+    "mode": "Classroom (Nayapalli, Bhubaneswar)",
+    "status": "Admissions Open",
+    "statusTone": "emerald",
+    "highlights": "Dedicated SAP GUI Server Access • Real Client Migration Scenarios",
+    "enrolledCount": 15,
+    "maxSeats": 25,
+    "startDate": "2026-12-15"
+  },
+  {
+    "id": "cohort-py",
+    "slug": "python",
+    "courseTitle": "Python Programming",
+    "category": "Enterprise & Core",
+    "summary": "Zero-to-production programming foundations covering OOP, data structures, REST API development, web scraping, and automation scripts.",
+    "tools": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Git",
+      "Selenium"
+    ],
+    "schedule": "Weekday Morning (Mon–Fri)",
+    "duration": "10–12 Weeks",
+    "mode": "Classroom & Lab Guided",
+    "status": "Admissions Open",
+    "statusTone": "emerald",
+    "highlights": "Build 5 Production Apps • Git Workflow • DSA Interview Prep",
+    "enrolledCount": 12,
+    "maxSeats": 20,
+    "startDate": "2026-12-10"
+  }
+]

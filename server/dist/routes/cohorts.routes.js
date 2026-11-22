@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const cohorts_controller_js_1 = require("../controllers/cohorts.controller.js");
+const validate_middleware_js_1 = require("../middlewares/validate.middleware.js");
+const router = (0, express_1.Router)();
+router.get("/", cohorts_controller_js_1.CohortsController.getCohorts);
+router.get("/:id", cohorts_controller_js_1.CohortsController.getCohortById);
+router.post("/", (0, validate_middleware_js_1.validateRequest)(cohorts_controller_js_1.createCohortSchema), cohorts_controller_js_1.CohortsController.createCohort);
+router.patch("/:id", cohorts_controller_js_1.CohortsController.updateCohort);
+router.delete("/:id", cohorts_controller_js_1.CohortsController.deleteCohort);
+exports.default = router;

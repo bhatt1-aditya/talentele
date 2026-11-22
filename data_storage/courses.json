@@ -1,0 +1,179 @@
+[
+  {
+    "slug": "data-analytics",
+    "title": "Data Analytics Master Program in Bhubaneswar",
+    "shortTitle": "Data Analytics Master Program",
+    "category": "analytics",
+    "categoryLabel": "Analytics & BI",
+    "heroHeadline": "From Raw Spreadsheets to Executive Power BI Dashboards & Enterprise SQL Queries",
+    "description": "Comprehensive practical training covering SQL query mastery, Advanced Excel modeling, and enterprise Power BI dashboard architecture.",
+    "duration": "16–20 Weeks",
+    "projectsCount": 8,
+    "tools": [
+      "SQL",
+      "Power BI",
+      "Excel",
+      "Python",
+      "DAX"
+    ],
+    "audience": [
+      "Freshers aiming for Analyst roles",
+      "Non-IT professionals switching to IT",
+      "Working executives"
+    ],
+    "prerequisites": "Basic computer familiarity. No prior coding required.",
+    "careerRoles": [
+      "Data Analyst",
+      "BI Developer",
+      "Business Reporting Executive",
+      "Operations Analyst"
+    ]
+  },
+  {
+    "slug": "business-analytics",
+    "title": "Business Analytics & Intelligence Program in Bhubaneswar",
+    "shortTitle": "Business Analytics & BI",
+    "category": "analytics",
+    "categoryLabel": "Analytics & BI",
+    "heroHeadline": "Turn Business Data into Boardroom Decisions with BI, KPIs & Predictive Insights",
+    "description": "Bridge executive business strategy and data engineering with exploratory analytics, KPIs, predictive regression, and Tableau visualization.",
+    "duration": "14–16 Weeks",
+    "projectsCount": 7,
+    "tools": [
+      "Power BI",
+      "Tableau",
+      "SQL",
+      "Excel",
+      "Alteryx"
+    ],
+    "audience": [
+      "MBA graduates & commerce students",
+      "Management professionals",
+      "Business consultants"
+    ],
+    "prerequisites": "Basic understanding of business operations and spreadsheets.",
+    "careerRoles": [
+      "Business Analyst",
+      "Strategy Analyst",
+      "Commercial Insights Specialist"
+    ]
+  },
+  {
+    "slug": "data-science",
+    "title": "Data Science & Machine Learning Course in Bhubaneswar",
+    "shortTitle": "Data Science & Machine Learning",
+    "category": "ai",
+    "categoryLabel": "Data Science & AI",
+    "heroHeadline": "Build, Train & Deploy Real Machine Learning Models with Python & Scikit-Learn",
+    "description": "End-to-end data science lifecycle from exploratory Python data wrangling to supervised ML models, NLP, and containerized API deployment.",
+    "duration": "24 Weeks",
+    "projectsCount": 10,
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-Learn",
+      "TensorFlow",
+      "MLflow",
+      "FastAPI"
+    ],
+    "audience": [
+      "BTech / MCA / MSc graduates",
+      "Developers looking to pivot to AI/ML",
+      "Data Analysts leveling up"
+    ],
+    "prerequisites": "Basic programming or mathematical background.",
+    "careerRoles": [
+      "Junior Data Scientist",
+      "ML Engineer",
+      "Quantitative Analyst"
+    ]
+  },
+  {
+    "slug": "power-bi",
+    "title": "Microsoft Power BI Certification Course in Bhubaneswar",
+    "shortTitle": "Microsoft Power BI",
+    "category": "analytics",
+    "categoryLabel": "Analytics & BI",
+    "heroHeadline": "Enterprise Data Modeling, Advanced DAX Measures & Power BI Service Administration",
+    "description": "Master enterprise Power BI modeling, advanced DAX calculated measures, Power Query ETL pipelines, and corporate Power BI Service governance.",
+    "duration": "8–10 Weeks",
+    "projectsCount": 6,
+    "tools": [
+      "Power BI Desktop",
+      "DAX Studio",
+      "Power Query",
+      "Microsoft Fabric"
+    ],
+    "audience": [
+      "Reporting analysts",
+      "Finance executives",
+      "Developers"
+    ],
+    "prerequisites": "Working knowledge of Excel formulas.",
+    "careerRoles": [
+      "Power BI Developer",
+      "Dashboard Consultant",
+      "BI Specialist"
+    ]
+  },
+  {
+    "slug": "sap",
+    "title": "SAP ERP Training in Bhubaneswar — FICO, MM, ABAP, SD",
+    "shortTitle": "SAP - FICO, MM, ABAP, SD",
+    "category": "core",
+    "categoryLabel": "Enterprise & Core",
+    "heroHeadline": "Hands-on SAP S/4HANA Configuration, Business Workflows & Enterprise Consulting",
+    "description": "Deep enterprise consulting skills across SAP S/4HANA financial accounting (FICO), procurement (MM), sales distribution (SD), and ABAP programming.",
+    "duration": "5–7 Months",
+    "projectsCount": 11,
+    "tools": [
+      "SAP GUI",
+      "SAP S/4HANA",
+      "FICO",
+      "MM",
+      "ABAP",
+      "SD"
+    ],
+    "audience": [
+      "Commerce / CA / ICWA aspirants for FICO",
+      "Engineers & developers for ABAP",
+      "Supply chain graduates for MM/SD"
+    ],
+    "prerequisites": "Domain understanding in finance, procurement, or programming.",
+    "careerRoles": [
+      "SAP Consultant",
+      "SAP Functional Analyst",
+      "ABAP Developer"
+    ]
+  },
+  {
+    "slug": "python",
+    "title": "Python Programming & Automation in Bhubaneswar",
+    "shortTitle": "Python Programming",
+    "category": "core",
+    "categoryLabel": "Enterprise & Core",
+    "heroHeadline": "From Python Syntax to Real Automation Scripts, Backend APIs & Data Wrangling",
+    "description": "Zero-to-production programming foundations covering OOP, data structures, REST API development, web scraping, and automation scripts.",
+    "duration": "10–12 Weeks",
+    "projectsCount": 6,
+    "tools": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Git",
+      "Selenium",
+      "Pandas"
+    ],
+    "audience": [
+      "Complete beginners to programming",
+      "Freshers seeking IT entry",
+      "Automation engineers"
+    ],
+    "prerequisites": "None. Starts from fundamentals.",
+    "careerRoles": [
+      "Python Developer",
+      "Software Engineer (Trainee)",
+      "Automation Engineer"
+    ]
+  }
+]

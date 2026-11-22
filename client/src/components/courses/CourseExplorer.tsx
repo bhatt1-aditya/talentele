@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { CourseCard } from "@/components/courses/CourseCard";
-import { courseCategories, courses, type CourseCategory } from "@/data/courses";
+import { courseCategories, courses, type Course, type CourseCategory } from "@/data/courses";
 import { cn } from "@/lib/utilities";
 
 type Filter = CourseCategory | "All";
@@ -12,7 +12,31 @@ type Filter = CourseCategory | "All";
 /** Course listing with category filtering aligned with the Home page design system. */
 export function CourseExplorer() {
   const [filter, setFilter] = useState<Filter>("All");
-  const visible = filter === "All" ? courses : courses.filter((c) => c.category === filter);
+  const [courseList, setCourseList] = useState<Course[]>(courses);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("talentele_admin_courses");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          // Merge dynamic courses while preserving image metadata for default courses
+          const merged = parsed.map((item: any) => {
+            const seedMatch = courses.find((c) => c.slug === item.slug);
+            return seedMatch ? { ...seedMatch, ...item } : item;
+          });
+          setCourseList(merged);
+        }
+      }
+    } catch (e) {
+      console.warn("Could not load dynamic courses from localStorage:", e);
+    }
+  }, []);
+
+  const visible =
+    filter === "All"
+      ? courseList
+      : courseList.filter((c) => c.category === filter || (c as any).categoryLabel === filter);
   const filters: Filter[] = ["All", ...courseCategories];
 
   return (
@@ -20,7 +44,10 @@ export function CourseExplorer() {
       {/* Category Filter Pills */}
       <div role="group" aria-label="Filter courses by category" className="flex flex-wrap gap-2">
         {filters.map((f) => {
-          const count = f === "All" ? courses.length : courses.filter((c) => c.category === f).length;
+          const count =
+            f === "All"
+              ? courseList.length
+              : courseList.filter((c) => c.category === f || (c as any).categoryLabel === f).length;
           const active = filter === f;
           return (
             <button

@@ -112,12 +112,17 @@ export function EnquiryForm({ defaultCourse = "" }: EnquiryFormProps) {
         </div>
       )}
 
-      {/* Spam protection honeypot */}
-      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-        <label>
-          Leave this field empty
-          <input type="text" name="company_website" tabIndex={-1} autoComplete="off" defaultValue="" />
-        </label>
+      {/* Spam protection honeypot (using non-autofill name to prevent browser autofill triggers) */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0, overflow: "hidden" }}>
+        <label htmlFor="_hp_check">Leave this field blank</label>
+        <input
+          id="_hp_check"
+          type="text"
+          name="_hp_check"
+          tabIndex={-1}
+          autoComplete="off"
+          defaultValue=""
+        />
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">

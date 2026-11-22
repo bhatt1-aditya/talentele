@@ -13,6 +13,7 @@ import {
   Menu,
   Phone,
   Sparkles,
+  User,
 } from "@/components/common/Icons";
 import { courses } from "@/data/courses";
 import { site } from "@/data/site";
@@ -30,18 +31,16 @@ const navItems = [
 
 export function Header() {
   const pathname = usePathname();
-  const [prevPathname, setPrevPathname] = useState(pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileCoursesExpanded, setIsMobileCoursesExpanded] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close menus on route change during render
-  if (prevPathname !== pathname) {
-    setPrevPathname(pathname);
+  // Close menus on route change
+  useEffect(() => {
     setIsMenuOpen(false);
     setIsDropdownOpen(false);
-  }
+  }, [pathname]);
 
   // Close dropdown on outside click or Escape
   useEffect(() => {
@@ -68,6 +67,11 @@ export function Header() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  // Return null if inside admin dashboard (must be after all hooks!)
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
@@ -310,6 +314,18 @@ export function Header() {
               </Link>
             );
           })}
+
+          {/* Mobile Admin Login link */}
+          <div className="mobile-nav-cta md:hidden pt-4 mt-3 border-t border-white/10 flex flex-col gap-2.5">
+            <Link
+              href="/admin"
+              className="header-login-btn justify-center w-full"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <User width={15} height={15} />
+              <span>Admin Login</span>
+            </Link>
+          </div>
         </nav>
 
         {/* Header Action Buttons */}
@@ -322,6 +338,16 @@ export function Header() {
             <Phone width={15} height={15} />
             <span>{site.phone.display}</span>
           </a>
+
+          {/* Login Button */}
+          <Link
+            href="/admin"
+            className="header-login-btn"
+            title="Admin Portal Login"
+          >
+            <User width={15} height={15} />
+            <span>Login</span>
+          </Link>
 
           <Link className="btn-primary btn-sm" href="/contact-us/">
             Enquire Now <ArrowRight width={16} height={16} />

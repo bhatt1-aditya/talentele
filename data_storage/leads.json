@@ -1,0 +1,93 @@
+[
+  {
+    "id": "lead-101",
+    "name": "Ashutosh Pradhan",
+    "phone": "+91 94370 12849",
+    "email": "ashutosh.pradhan@gmail.com",
+    "course": "data-analytics",
+    "courseLabel": "Data Analytics Master Program",
+    "source": "Hero Enquiry Form",
+    "status": "new",
+    "submittedAt": "2026-11-22T09:15:00Z",
+    "message": "Interested in the weekend batch for SQL and Power BI. Working professional.",
+    "counsellorNotes": "Spoke on phone, scheduled campus visit for Saturday at 11:30 AM."
+  },
+  {
+    "id": "lead-102",
+    "name": "Priyadarshini Rout",
+    "phone": "+91 89172 38472",
+    "email": "priya.rout99@yahoo.com",
+    "course": "sap",
+    "courseLabel": "SAP ERP - FICO, MM, ABAP, SD",
+    "source": "SAP Course Page",
+    "status": "contacted",
+    "submittedAt": "2026-11-21T14:30:00Z",
+    "message": "Looking for SAP FICO module with certification and placement guidance.",
+    "counsellorNotes": "Sent FICO module syllabus via WhatsApp. Requested fee structure."
+  },
+  {
+    "id": "lead-103",
+    "name": "Soumya Ranjan Mohanty",
+    "phone": "+91 70081 29481",
+    "email": "soumya.rm@outlook.com",
+    "course": "data-science",
+    "courseLabel": "Data Science & Machine Learning",
+    "source": "Direct WhatsApp",
+    "status": "follow-up",
+    "submittedAt": "2026-11-21T10:00:00Z",
+    "message": "Final year MCA student at KIIT. Wants deep dive into Python and ML.",
+    "counsellorNotes": "Follow-up scheduled on Monday post semester viva exam."
+  },
+  {
+    "id": "lead-104",
+    "name": "Swagatika Nayak",
+    "phone": "+91 82490 61723",
+    "email": "swagatika.nayak@gmail.com",
+    "course": "business-analytics",
+    "courseLabel": "Business Analytics & BI",
+    "source": "Google Ad Campaign",
+    "status": "enrolled",
+    "submittedAt": "2026-11-20T11:25:00Z",
+    "message": "Enrolled in Upcoming November Cohort. Paid registration token.",
+    "counsellorNotes": "Enrolment confirmed. Added to Batch #DA-26 WhatsApp group."
+  },
+  {
+    "id": "lead-105",
+    "name": "Bikash Ranjan Das",
+    "phone": "+91 99380 41209",
+    "email": "bikash.das.od@gmail.com",
+    "course": "data-science",
+    "courseLabel": "Data Science & Machine Learning",
+    "source": "Contact Us Page",
+    "status": "contacted",
+    "submittedAt": "2026-11-20T09:00:00Z",
+    "message": "2024 BTech graduate looking for full placement assistance.",
+    "counsellorNotes": "Resume screened. Eligible for placement guarantee support."
+  },
+  {
+    "id": "lead-106",
+    "name": "Deepak Pattanaik",
+    "phone": "+91 79781 92834",
+    "email": "deepak.pattanaik@yahoo.co.in",
+    "course": "python",
+    "courseLabel": "Python Programming",
+    "source": "Walk-in Enquiry",
+    "status": "new",
+    "submittedAt": "2026-11-19T16:50:00Z",
+    "message": "Walk-in enquiry at Nayapalli campus. Wants live classroom training.",
+    "counsellorNotes": "Met front desk counsellor. Promised visit with parents on Sunday."
+  },
+  {
+    "id": "lead-107",
+    "name": "Monali Samal",
+    "phone": "+91 91782 34091",
+    "email": "monali.samal@gmail.com",
+    "course": "power-bi",
+    "courseLabel": "Microsoft Power BI",
+    "source": "Hero Enquiry Form",
+    "status": "enrolled",
+    "submittedAt": "2026-11-18T12:30:00Z",
+    "message": "Enrolled in Power BI weekend masterclass.",
+    "counsellorNotes": "Batch seat reserved #PBI-04."
+  }
+]

@@ -34,8 +34,11 @@ export async function submitEnquiry(_prev: EnquiryState, formData: FormData): Pr
   };
 
   // Spam protection: hidden honeypot field
-  const honeypot = String(formData.get("company_website") ?? "").trim();
-  if (honeypot) {
+  const honeypot = String(formData.get("_hp_check") ?? formData.get("company_website") ?? "").trim();
+  // Only trigger spam failure if an obvious bot filled the dedicated bot verification field
+  const dedicatedHp = String(formData.get("_hp_check") ?? "").trim();
+  if (dedicatedHp) {
+    console.warn("[enquiry] Spam honeypot triggered; discarding bot enquiry");
     return { status: "failed", values };
   }
 

@@ -1,0 +1,120 @@
+[
+  {
+    "id": "place-01",
+    "studentName": "Subhashree Mohapatra",
+    "photo": "/images/home/person-1.jpg",
+    "course": "Data Analytics Master Program",
+    "designation": "Associate Data Analyst",
+    "company": "Tata Consultancy Services (TCS)",
+    "companyShort": "TCS",
+    "placementYear": "2025",
+    "skillsAcquired": [
+      "SQL",
+      "Power BI",
+      "Advanced Excel",
+      "DAX",
+      "Data Storytelling"
+    ],
+    "successStory": "Transitioned from non-IT academic background into enterprise analytics.",
+    "salaryHike": "120% Transition Hike",
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "place-02",
+    "studentName": "Rakesh Kumar Jena",
+    "photo": "/images/home/person-2.jpg",
+    "course": "Business Analytics & BI",
+    "designation": "Business Intelligence Analyst",
+    "company": "Deloitte USI",
+    "companyShort": "Deloitte",
+    "placementYear": "2025",
+    "skillsAcquired": [
+      "Tableau",
+      "SQL",
+      "Alteryx",
+      "KPI Analytics",
+      "Executive Reporting"
+    ],
+    "successStory": "Cracked Deloitte campus placement with strong project portfolio.",
+    "salaryHike": "140% Starting Hike",
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "place-03",
+    "studentName": "Priyanka Priyadarshini",
+    "photo": "/images/home/person-3.jpg",
+    "course": "Data Science & Machine Learning",
+    "designation": "Junior Data Scientist",
+    "company": "PwC India",
+    "companyShort": "PwC",
+    "placementYear": "2025",
+    "skillsAcquired": [
+      "Python",
+      "Pandas",
+      "Scikit-Learn",
+      "SQL",
+      "ML Pipelines"
+    ],
+    "successStory": "Built fraud detection model during capstone that impressed PwC recruiters.",
+    "salaryHike": "110% Career Hike",
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "place-04",
+    "studentName": "Ashish Kumar Nayak",
+    "photo": "/images/home/person-4.jpg",
+    "course": "SAP - FICO, MM, ABAP, SD",
+    "designation": "SAP S/4HANA Associate Consultant",
+    "company": "Capgemini",
+    "companyShort": "Capgemini",
+    "placementYear": "2024",
+    "skillsAcquired": [
+      "SAP FICO",
+      "General Ledger",
+      "AR/AP",
+      "Asset Accounting",
+      "S/4HANA"
+    ],
+    "successStory": "Transitioned from commerce accounting to SAP consulting.",
+    "salaryHike": "160% Hike",
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "place-05",
+    "studentName": "Smruti Ranjan Sahoo",
+    "photo": "/images/home/person-5.jpg",
+    "course": "Data Analytics Master Program",
+    "designation": "Data Analyst",
+    "company": "Accenture",
+    "companyShort": "Accenture",
+    "placementYear": "2025",
+    "skillsAcquired": [
+      "Power BI",
+      "SQL",
+      "Excel",
+      "Data Modeling"
+    ],
+    "successStory": "Placed in Accenture with excellent technical rating in SQL.",
+    "salaryHike": "135% Hike",
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "place-06",
+    "studentName": "Ananya Tripathy",
+    "photo": "/images/home/person-6.jpg",
+    "course": "Microsoft Power BI",
+    "designation": "BI Reporting Analyst",
+    "company": "EY (Ernst & Young)",
+    "companyShort": "EY",
+    "placementYear": "2024",
+    "skillsAcquired": [
+      "Power BI Desktop",
+      "DAX",
+      "Power Query",
+      "Financial Modeling"
+    ],
+    "successStory": "Mastered PL-300 curriculum and joined EY Global Delivery Services.",
+    "salaryHike": "125% Hike",
+    "verificationStatus": "verified"
+  }
+]
