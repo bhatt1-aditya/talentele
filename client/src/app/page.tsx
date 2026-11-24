@@ -40,7 +40,7 @@ export default function HomePage() {
       <HomePlacements />
 
       {/* 6. Hall of Excellence Showcase */}
-      <HallOfExcellence />
+      {/* <HallOfExcellence /> */}
 
       {/* 7. Expert Mentors & Faculty */}
       <HomeTestimonials />

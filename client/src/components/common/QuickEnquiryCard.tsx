@@ -219,3 +219,5 @@ export function QuickEnquiryCard({
     </form>
   );
 }
+
+export default QuickEnquiryCard;
