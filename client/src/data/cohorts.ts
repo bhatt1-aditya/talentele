@@ -3,9 +3,13 @@ import type { StaticImageData } from "next/image";
 import dataAnalyticsImg from "@/assets/images/courses/data-analytics.jpg";
 import businessAnalyticsImg from "@/assets/images/courses/business-analytics.jpg";
 import dataScienceImg from "@/assets/images/courses/data-science.jpg";
+import generativeAiImg from "@/assets/images/courses/generative-ai.jpg";
+import softwareTestingImg from "@/assets/images/courses/software-testing.jpg";
 import powerBiImg from "@/assets/images/courses/power-bi.jpg";
 import sapImg from "@/assets/images/courses/sap.jpg";
 import pythonImg from "@/assets/images/courses/python.jpg";
+import excelImg from "@/assets/images/courses/excel.jpg";
+import sqlImg from "@/assets/images/courses/sql.jpg";
 
 export type CohortItem = {
   id: string;
@@ -62,19 +66,51 @@ export const upcomingCohorts: CohortItem[] = [
   },
   {
     id: "cohort-ds",
-    slug: "generative-ai",
-    courseTitle: "Data Science & Generative AI",
+    slug: "data-science",
+    courseTitle: "Data Science & Machine Learning",
     category: "AI & Machine Learning",
     image: dataScienceImg,
     summary:
-      "End-to-end data science pipelines: machine learning algorithms, predictive modeling, OpenAI API integration, and prompt engineering.",
-    tools: ["Python", "Pandas", "Scikit-Learn", "OpenAI", "Prompt Eng."],
+      "End-to-end data science pipelines: machine learning algorithms, predictive modeling, statistical inference, and real-world project portfolios.",
+    tools: ["Python", "Pandas", "Scikit-Learn", "TensorFlow", "MLflow"],
     schedule: "Weekend Specialized Cohort",
     duration: "20–24 Weeks",
     mode: "Classroom & Live Interactive Online",
     status: "Upcoming Batch",
     statusTone: "blue",
     highlights: "Production ML Pipelines • Deployment • Portfolio Code",
+  },
+  {
+    id: "cohort-genai",
+    slug: "generative-ai",
+    courseTitle: "Generative AI & Agentic AI Masterclass",
+    category: "AI & Machine Learning",
+    image: generativeAiImg,
+    summary:
+      "Master LLMs, prompt engineering, LangChain, RAG architecture, and autonomous multi-agent systems for modern tech roles.",
+    tools: ["OpenAI", "LangChain", "Python", "LlamaIndex", "ChromaDB"],
+    schedule: "Weekend Intensive Track",
+    duration: "12–14 Weeks",
+    mode: "Live Interactive Online & Classroom",
+    status: "Admissions Open",
+    statusTone: "emerald",
+    highlights: "Autonomous Agents • RAG Systems • Vector Database Integration",
+  },
+  {
+    id: "cohort-st",
+    slug: "software-testing",
+    courseTitle: "Software Testing & QA Automation",
+    category: "Enterprise Software",
+    image: softwareTestingImg,
+    summary:
+      "Learn how software is tested: manual test design, defect reporting, Selenium UI automation, and API testing with Postman and Jenkins.",
+    tools: ["Selenium", "Postman", "JIRA", "JUnit", "Jenkins", "SQL"],
+    schedule: "Weekday & Weekend Cohorts",
+    duration: "12–16 Weeks",
+    mode: "Classroom Lab & Live Online",
+    status: "Fast-Filling Cohort",
+    statusTone: "amber",
+    highlights: "Live Web & API Testing Labs • CI/CD Integration • Real Bug Tracking",
   },
   {
     id: "cohort-pbi",
@@ -112,7 +148,7 @@ export const upcomingCohorts: CohortItem[] = [
     id: "cohort-py",
     slug: "python",
     courseTitle: "Python for Data Science & Automation",
-    category: "Programming & Code",
+    category: "Data & Analytics",
     image: pythonImg,
     summary:
       "Learn Python programming from scratch: core syntax, data structures, automated ETL scripts, web scraping, and data manipulation.",
@@ -123,6 +159,38 @@ export const upcomingCohorts: CohortItem[] = [
     status: "Admissions Open",
     statusTone: "emerald",
     highlights: "Hands-on Coding Lab • Scripting Projects • 1-on-1 Mentorship",
+  },
+  {
+    id: "cohort-excel",
+    slug: "excel",
+    courseTitle: "Advanced Excel & Financial Modeling",
+    category: "Data & Analytics",
+    image: excelImg,
+    summary:
+      "Go beyond basics with enterprise formula logic, dynamic arrays, pivot tables, automated macros, and professional MIS reporting.",
+    tools: ["Excel", "Power Query", "XLOOKUP", "Pivot Tables", "Macros"],
+    schedule: "Weekend Specialized Track",
+    duration: "6–8 Weeks",
+    mode: "Classroom Lab & Live Online",
+    status: "Admissions Open",
+    statusTone: "emerald",
+    highlights: "Automated MIS Dashboards • Dynamic Arrays • Financial Models",
+  },
+  {
+    id: "cohort-sql",
+    slug: "sql",
+    courseTitle: "SQL for Data Analytics & Database Engineering",
+    category: "Data & Analytics",
+    image: sqlImg,
+    summary:
+      "Learn to retrieve, combine and summarise data from relational databases with SQL — an essential skill for analysts and developers.",
+    tools: ["SQL", "PostgreSQL", "MySQL", "DBeaver", "Database Schema"],
+    schedule: "Weekday & Weekend Batches",
+    duration: "6–8 Weeks",
+    mode: "Classroom Lab & Live Online",
+    status: "Upcoming Batch",
+    statusTone: "blue",
+    highlights: "Complex Multi-Table Joins • Window Functions • Query Tuning",
   },
 ];
 

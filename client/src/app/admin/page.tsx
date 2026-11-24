@@ -311,26 +311,46 @@ export default function AdminPage() {
   // Hydrate Courses from Backend Server / localStorage on client mount
   useEffect(() => {
     async function loadServerCourses() {
+      let rawData: any[] = [];
       try {
         const res = await serverApi.getCourses();
         if (res.success && res.data && res.data.length > 0) {
-          setAdminCourses(res.data);
-          localStorage.setItem("talentele_admin_courses", JSON.stringify(res.data));
-          return;
+          rawData = res.data;
         }
       } catch {
         // Fallback to local storage if backend is sleeping
       }
-      try {
-        const stored = localStorage.getItem("talentele_admin_courses");
-        if (stored) {
-          const parsed = JSON.parse(stored);
-          if (Array.isArray(parsed) && parsed.length > 0) {
-            setAdminCourses(parsed);
+
+      if (rawData.length === 0) {
+        try {
+          const stored = localStorage.getItem("talentele_admin_courses");
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              rawData = parsed;
+            }
           }
+        } catch (e) {
+          console.error("Failed to load courses from localStorage", e);
         }
-      } catch (e) {
-        console.error("Failed to load courses from localStorage", e);
+      }
+
+      if (rawData.length > 0) {
+        // Merge with all 10 seed courses so no official courses are ever missing
+        const merged = courses.map((seed) => {
+          const match = rawData.find((item: any) => item.slug === seed.slug);
+          return match ? { ...seed, ...match } : seed;
+        });
+        const extra = rawData.filter(
+          (item: any) => !courses.some((c) => c.slug === item.slug)
+        );
+        const finalCourses = [...merged, ...extra];
+        setAdminCourses(finalCourses);
+        try {
+          localStorage.setItem("talentele_admin_courses", JSON.stringify(finalCourses));
+        } catch {}
+      } else {
+        setAdminCourses(courses);
       }
     }
     loadServerCourses();

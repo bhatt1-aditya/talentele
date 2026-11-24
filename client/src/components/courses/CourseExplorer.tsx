@@ -20,12 +20,16 @@ export function CourseExplorer() {
       if (stored) {
         const parsed = JSON.parse(stored);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          // Merge dynamic courses while preserving image metadata for default courses
-          const merged = parsed.map((item: any) => {
-            const seedMatch = courses.find((c) => c.slug === item.slug);
-            return seedMatch ? { ...seedMatch, ...item } : item;
+          // Always preserve all default seed courses, applying dynamic edits on matching items
+          const merged = courses.map((seed) => {
+            const dynamicMatch = parsed.find((item: any) => item.slug === seed.slug);
+            return dynamicMatch ? { ...seed, ...dynamicMatch } : seed;
           });
-          setCourseList(merged);
+          // Also append any newly created custom courses added via the admin panel
+          const extraCourses = parsed.filter(
+            (item: any) => !courses.some((c) => c.slug === item.slug)
+          );
+          setCourseList([...merged, ...extraCourses]);
         }
       }
     } catch (e) {
