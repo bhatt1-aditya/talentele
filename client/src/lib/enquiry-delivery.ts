@@ -125,7 +125,7 @@ export function isDeliveryConfigured(): boolean {
 export async function deliverEnquiry(enquiry: Enquiry): Promise<DeliveryResult> {
   const { RESEND_API_KEY, ENQUIRY_TO_EMAIL, ENQUIRY_FROM_EMAIL, ENQUIRY_WEBHOOK_URL, ENQUIRY_WEBHOOK_SECRET } =
     process.env;
-  const backendUrl = process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1";
+  const backendUrl = process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_API_URL || "https://talentele-1.onrender.com/api/v1";
 
   let savedInBackend = false;
 
