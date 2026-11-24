@@ -156,7 +156,7 @@ const DEFAULT_SEED_LEADS: Lead[] = [
   },
 ];
 
-type AdminTab = "overview" | "leads" | "courses" | "batches" | "placements" | "blog" | "settings";
+type AdminTab = "overview" | "leads" | "courses" | "batches" | "placements" | "blog";
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<AdminTab>("overview");
@@ -164,9 +164,21 @@ export default function AdminPage() {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   // ---------------------------------------------------------------------------
-  // Admin Authentication State
+  // Admin Authentication State (Persistent across page refreshes)
   // ---------------------------------------------------------------------------
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const auth = localStorage.getItem("talentele_admin_auth");
+        const cookieAuth = document.cookie.includes("talentele_admin_auth=true");
+        return auth === "true" || cookieAuth;
+      } catch {
+        return false;
+      }
+    }
+    return false;
+  });
+  const [isAuthChecking, setIsAuthChecking] = useState<boolean>(true);
   const [loginIdentifier, setLoginIdentifier] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -177,11 +189,18 @@ export default function AdminPage() {
   useEffect(() => {
     try {
       const auth = localStorage.getItem("talentele_admin_auth");
-      if (auth === "true") {
+      const cookieAuth = typeof document !== "undefined" && document.cookie.includes("talentele_admin_auth=true");
+      if (auth === "true" || cookieAuth) {
         setIsAuthenticated(true);
+        localStorage.setItem("talentele_admin_auth", "true");
+        document.cookie = "talentele_admin_auth=true; path=/; max-age=2592000; SameSite=Lax";
+      } else {
+        setIsAuthenticated(false);
       }
     } catch (e) {
       console.error("Auth check failed", e);
+    } finally {
+      setIsAuthChecking(false);
     }
   }, []);
 
@@ -207,6 +226,7 @@ export default function AdminPage() {
 
       if (isIdentifierValid && isPasswordValid) {
         localStorage.setItem("talentele_admin_auth", "true");
+        document.cookie = "talentele_admin_auth=true; path=/; max-age=2592000; SameSite=Lax";
         localStorage.setItem(
           "talentele_admin_user",
           JSON.stringify({
@@ -229,6 +249,7 @@ export default function AdminPage() {
   const handleLogout = () => {
     localStorage.removeItem("talentele_admin_auth");
     localStorage.removeItem("talentele_admin_user");
+    document.cookie = "talentele_admin_auth=; path=/; max-age=0; SameSite=Lax";
     setIsAuthenticated(false);
     setLoginPassword("");
   };
@@ -649,6 +670,17 @@ export default function AdminPage() {
   // ---------------------------------------------------------------------------
   // Auth Gates
   // ---------------------------------------------------------------------------
+  if (isAuthChecking) {
+    return (
+      <div className="admin-login-wrapper flex items-center justify-center min-h-screen bg-slate-950 text-white">
+        <div className="flex flex-col items-center gap-3">
+          <RefreshCw width={26} height={26} className="animate-spin text-red-500" />
+          <p className="text-xs text-slate-400 font-medium tracking-wide">Checking administrator session...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!isAuthenticated) {
     return (
       <div className="admin-login-wrapper">
@@ -914,21 +946,6 @@ export default function AdminPage() {
             </div>
             {!isSidebarCollapsed && <span className="admin-nav-badge">{posts.length}</span>}
           </button>
-
-          <button
-            type="button"
-            className={`admin-nav-item ${activeTab === "settings" ? "active" : ""}`}
-            onClick={() => {
-              setActiveTab("settings");
-              setIsMobileSidebarOpen(false);
-            }}
-            title="Settings & System"
-          >
-            <div className="admin-nav-left">
-              <Settings width={18} height={18} />
-              {!isSidebarCollapsed && <span>Settings</span>}
-            </div>
-          </button>
         </nav>
 
         {/* Sidebar Footer */}
@@ -1000,7 +1017,6 @@ export default function AdminPage() {
                 {activeTab === "batches" && "Batches & Cohorts"}
                 {activeTab === "placements" && "Placements & Hall of Excellence"}
                 {activeTab === "blog" && "Articles & Blog"}
-                {activeTab === "settings" && "Institute & CRM Settings"}
               </span>
             </div>
           </div>
@@ -2011,100 +2027,6 @@ export default function AdminPage() {
                     ))}
                   </tbody>
                 </table>
-              </div>
-            </div>
-          )}
-
-          {/* ==================================================================
-              TAB 7: SETTINGS & SYSTEM
-              ================================================================== */}
-          {activeTab === "settings" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Institute Contact Configuration */}
-              <div className="admin-card">
-                <div className="admin-card-header">
-                  <div>
-                    <h3 className="admin-card-title">Institute Contact Information</h3>
-                    <p className="admin-card-subtitle">Public contact and counselling channels</p>
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col gap-4 text-xs">
-                  <div>
-                    <label className="block text-slate-400 font-semibold mb-1">Helpline Phone:</label>
-                    <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-sm">
-                      {site.phone.display} ({site.phone.href})
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-slate-400 font-semibold mb-1">Official Support Email:</label>
-                    <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-sm">
-                      {site.email}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-slate-400 font-semibold mb-1">Campus Location:</label>
-                    <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-white leading-relaxed">
-                      Plot No 149, Sector-B, Mancheswar Railway Colony, Mancheswar, Bhubaneswar, Odisha 751017
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-slate-400 font-semibold mb-1">Google Maps Profile:</label>
-                    <a
-                      href={site.mapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-red-400 hover:underline flex items-center gap-1"
-                    >
-                      Open Verified Google Maps Location <ExternalLink width={12} height={12} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Lead Delivery Integrations */}
-              <div className="admin-card">
-                <div className="admin-card-header">
-                  <div>
-                    <h3 className="admin-card-title">Enquiry & Delivery Integrations</h3>
-                    <p className="admin-card-subtitle">Server-side email & CRM dispatch triggers</p>
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col gap-4 text-xs">
-                  <div className="p-3 rounded-lg border border-emerald-900/50 bg-emerald-950/20 text-emerald-300">
-                    <strong className="block font-bold text-sm mb-1 text-emerald-400">
-                      Website Form Connected
-                    </strong>
-                    All website submissions from the Hero Quick Enquiry card, Course Detail pages, and Contact Form are
-                    processed securely through Next.js server actions.
-                  </div>
-
-                  <div>
-                    <label className="block text-slate-400 font-semibold mb-1">Resend Email Gateway:</label>
-                    <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-mono">
-                      RESEND_API_KEY (Configured in server environment)
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-slate-400 font-semibold mb-1">Notification Webhook:</label>
-                    <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-mono">
-                      https://api.talentele.in/webhooks/enquiries
-                    </div>
-                  </div>
-
-                  <div className="pt-2">
-                    <button
-                      type="button"
-                      className="admin-btn admin-btn-secondary"
-                      onClick={() => showNotification("Webhook connection verified!")}
-                    >
-                      <RefreshCw width={14} height={14} /> Test Connection
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
           )}

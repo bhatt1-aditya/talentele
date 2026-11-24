@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -13,8 +13,9 @@ import {
   Sparkles,
 } from "@/components/common/Icons";
 import { ToolLogo } from "@/components/common/ToolLogo";
-import { upcomingCohorts } from "@/data/cohorts";
+import { upcomingCohorts, type CohortItem } from "@/data/cohorts";
 import { site } from "@/data/site";
+import { serverApi } from "@/lib/server-api";
 import { SectionHeading } from "./SectionHeading";
 
 const filterCategories = [
@@ -28,11 +29,43 @@ const filterCategories = [
 export function Cohorts() {
   const [activeCategory, setActiveCategory] = useState("All Programs");
   const [showAll, setShowAll] = useState(false);
+  const [cohortList, setCohortList] = useState<CohortItem[]>(upcomingCohorts);
+
+  useEffect(() => {
+    // 1. Hydrate from localStorage
+    try {
+      const stored = localStorage.getItem("talentele_admin_cohorts");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const merged = parsed.map((item: any) => {
+            const seed = upcomingCohorts.find((c) => c.slug === item.slug || c.id === item.id);
+            return seed ? { ...seed, ...item } : item;
+          });
+          setCohortList(merged);
+        }
+      }
+    } catch {}
+
+    // 2. Fetch from server API in background
+    serverApi.getCohorts().then((res) => {
+      if (res.success && Array.isArray(res.data) && res.data.length > 0) {
+        const merged = res.data.map((item: any) => {
+          const seed = upcomingCohorts.find((c) => c.slug === item.slug || c.id === item.id);
+          return seed ? { ...seed, ...item } : item;
+        });
+        setCohortList(merged);
+        try {
+          localStorage.setItem("talentele_admin_cohorts", JSON.stringify(res.data));
+        } catch {}
+      }
+    }).catch(() => {});
+  }, []);
 
   const filteredCohorts =
     activeCategory === "All Programs"
-      ? upcomingCohorts
-      : upcomingCohorts.filter((c) => c.category === activeCategory);
+      ? cohortList
+      : cohortList.filter((c) => c.category === activeCategory);
 
   const displayedCohorts = showAll ? filteredCohorts : filteredCohorts.slice(0, 2);
 

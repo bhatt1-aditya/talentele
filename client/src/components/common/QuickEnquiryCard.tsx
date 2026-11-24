@@ -1,9 +1,10 @@
 "use client";
 
-import { useActionState, useRef, type FormEvent } from "react";
+import { useActionState, useEffect, useRef, useState, type FormEvent } from "react";
 import { submitEnquiry, type EnquiryState } from "@/app/contact-us/actions";
 import { ArrowRight, Check, CheckCircle, ChevronDown, Phone, RotateCcw, Sparkles } from "@/components/common/Icons";
 import { GENERAL_GUIDANCE } from "@/lib/validation";
+import { serverApi } from "@/lib/server-api";
 
 const initialState: EnquiryState = { status: "idle" };
 
@@ -39,6 +40,86 @@ export function QuickEnquiryCard({
 }: QuickEnquiryCardProps) {
   const [state, formAction, pending] = useActionState(submitEnquiry, initialState);
   const startedAtInputRef = useRef<HTMLInputElement>(null);
+
+  // Dynamic Course and Batch State synced with Admin/Server
+  const [courseOptions, setCourseOptions] = useState(allCourseOptions);
+  const [batchOptions, setBatchOptions] = useState<string[]>([
+    "Weekday — upcoming batch",
+    "Weekend — upcoming batch",
+  ]);
+
+  useEffect(() => {
+    // 1. Hydrate courses from localStorage
+    try {
+      const storedCourses = localStorage.getItem("talentele_admin_courses");
+      if (storedCourses) {
+        const parsed = JSON.parse(storedCourses);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const dynamicOptions = [
+            { label: "Help Me Choose A Program", value: GENERAL_GUIDANCE },
+            ...parsed.map((c: any) => ({
+              label: c.shortTitle || c.title,
+              value: c.slug,
+            })),
+          ];
+          setCourseOptions(dynamicOptions);
+        }
+      }
+    } catch {}
+
+    // 2. Hydrate batches from localStorage
+    try {
+      const storedCohorts = localStorage.getItem("talentele_admin_cohorts");
+      if (storedCohorts) {
+        const parsed = JSON.parse(storedCohorts);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const dynamicBatches = parsed.map(
+            (b: any) => `${b.courseTitle || b.title} — ${b.schedule || "Upcoming batch"}`
+          );
+          if (dynamicBatches.length > 0) {
+            setBatchOptions([
+              "Weekday — upcoming batch",
+              "Weekend — upcoming batch",
+              ...dynamicBatches,
+            ]);
+          }
+        }
+      }
+    } catch {}
+
+    // 3. Sync from backend server API
+    Promise.allSettled([serverApi.getCourses(), serverApi.getCohorts()]).then(([cRes, bRes]) => {
+      if (cRes.status === "fulfilled" && cRes.value.success && Array.isArray(cRes.value.data) && cRes.value.data.length > 0) {
+        const dynamicOptions = [
+          { label: "Help Me Choose A Program", value: GENERAL_GUIDANCE },
+          ...cRes.value.data.map((c: any) => ({
+            label: c.shortTitle || c.title,
+            value: c.slug,
+          })),
+        ];
+        setCourseOptions(dynamicOptions);
+        try {
+          localStorage.setItem("talentele_admin_courses", JSON.stringify(cRes.value.data));
+        } catch {}
+      }
+
+      if (bRes.status === "fulfilled" && bRes.value.success && Array.isArray(bRes.value.data) && bRes.value.data.length > 0) {
+        const dynamicBatches = bRes.value.data.map(
+          (b: any) => `${b.courseTitle || b.title} — ${b.schedule || "Upcoming batch"}`
+        );
+        if (dynamicBatches.length > 0) {
+          setBatchOptions([
+            "Weekday — upcoming batch",
+            "Weekend — upcoming batch",
+            ...dynamicBatches,
+          ]);
+        }
+        try {
+          localStorage.setItem("talentele_admin_cohorts", JSON.stringify(bRes.value.data));
+        } catch {}
+      }
+    });
+  }, []);
 
   function handleClientSubmit(e: FormEvent<HTMLFormElement>) {
     if (!e.currentTarget.checkValidity()) {
@@ -171,7 +252,7 @@ export function QuickEnquiryCard({
         Course of Interest
         <span className="select-wrap">
           <select name="course" defaultValue={selectedValue} required>
-            {allCourseOptions.map((opt) => (
+            {courseOptions.map((opt) => (
               <option key={`${opt.label}-${opt.value}`} value={opt.value}>
                 {opt.label}
               </option>
@@ -184,9 +265,12 @@ export function QuickEnquiryCard({
       <label>
         Select Preferred Batch
         <span className="select-wrap">
-          <select name="batch" defaultValue="weekday" required>
-            <option value="weekday">Weekday — upcoming batch</option>
-            <option value="weekend">Weekend — upcoming batch</option>
+          <select name="batch" defaultValue={batchOptions[0] || "weekday"} required>
+            {batchOptions.map((batchName) => (
+              <option key={batchName} value={batchName}>
+                {batchName}
+              </option>
+            ))}
           </select>
           <ChevronDown width={17} height={17} />
         </span>
