@@ -546,7 +546,7 @@ export default function AdminPage() {
       prev.map((c) => {
         if (c.slug === slug) {
           const nextStatus = c.status === "Draft" ? "Active" : "Draft";
-          serverApi.updateCourse(slug, { status: nextStatus }).catch(() => {});
+          serverApi.updateCourse(slug, { status: nextStatus }).catch(() => { });
           return { ...c, status: nextStatus };
         }
         return c;
@@ -765,9 +765,8 @@ export default function AdminPage() {
           1. Admin Sidebar
           ---------------------------------------------------------------------- */}
       <aside
-        className={`admin-sidebar ${isSidebarCollapsed ? "collapsed" : ""} ${
-          isMobileSidebarOpen ? "open" : ""
-        }`}
+        className={`admin-sidebar ${isSidebarCollapsed ? "collapsed" : ""} ${isMobileSidebarOpen ? "open" : ""
+          }`}
       >
         {/* Brand Header */}
         <div className="admin-sidebar-header">
@@ -780,7 +779,7 @@ export default function AdminPage() {
               priority
               style={{ objectFit: "contain" }}
             />
-            {!isSidebarCollapsed && <span className="admin-logo-badge">ADMIN</span>}
+            {/* {!isSidebarCollapsed && <span className="admin-logo-badge">ADMIN</span>} */}
           </Link>
           <button
             type="button"
@@ -790,13 +789,7 @@ export default function AdminPage() {
           >
             {isSidebarCollapsed ? <PanelLeftOpen width={18} height={18} /> : <PanelLeftClose width={18} height={18} />}
           </button>
-          <button
-            type="button"
-            className="admin-collapse-btn md:hidden"
-            onClick={() => setIsMobileSidebarOpen(false)}
-          >
-            <X width={20} height={20} />
-          </button>
+
         </div>
 
         {/* Navigation Tabs */}
@@ -998,14 +991,6 @@ export default function AdminPage() {
               <span>CRM Live • Bhubaneswar</span>
             </div>
 
-            <button
-              type="button"
-              className="admin-btn admin-btn-primary"
-              onClick={() => setIsAddLeadModalOpen(true)}
-            >
-              <Plus width={16} height={16} />
-              <span className="hidden sm:inline">Add Lead</span>
-            </button>
           </div>
         </header>
 
@@ -1597,21 +1582,20 @@ export default function AdminPage() {
                         cat.value === "all"
                           ? adminCourses.length
                           : adminCourses.filter(
-                              (c) =>
-                                c.category?.toLowerCase() === cat.value ||
-                                c.categoryLabel?.toLowerCase().includes(cat.value)
-                            ).length;
+                            (c) =>
+                              c.category?.toLowerCase() === cat.value ||
+                              c.categoryLabel?.toLowerCase().includes(cat.value)
+                          ).length;
                       const isActive = courseCategoryFilter === cat.value;
                       return (
                         <button
                           key={cat.value}
                           type="button"
                           onClick={() => setCourseCategoryFilter(cat.value)}
-                          className={`px-3 py-1.5 rounded-lg font-semibold transition-all ${
-                            isActive
-                              ? "bg-red-500 text-white shadow-sm"
-                              : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700"
-                          }`}
+                          className={`px-3 py-1.5 rounded-lg font-semibold transition-all ${isActive
+                            ? "bg-red-500 text-white shadow-sm"
+                            : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700"
+                            }`}
                         >
                           {cat.label} ({count})
                         </button>
@@ -1681,11 +1665,10 @@ export default function AdminPage() {
                               type="button"
                               onClick={() => handleToggleCourseStatus(c.slug)}
                               title="Click to toggle status"
-                              className={`text-[10px] font-bold px-2 py-0.5 rounded border transition-all cursor-pointer ${
-                                isDraft
-                                  ? "text-amber-400 bg-amber-950/50 border-amber-800/50 hover:bg-amber-900/60"
-                                  : "text-emerald-400 bg-emerald-950/50 border-emerald-800/50 hover:bg-emerald-900/60"
-                              }`}
+                              className={`text-[10px] font-bold px-2 py-0.5 rounded border transition-all cursor-pointer ${isDraft
+                                ? "text-amber-400 bg-amber-950/50 border-amber-800/50 hover:bg-amber-900/60"
+                                : "text-emerald-400 bg-emerald-950/50 border-emerald-800/50 hover:bg-emerald-900/60"
+                                }`}
                             >
                               {isDraft ? "Draft" : "● Active"}
                             </button>
@@ -1817,11 +1800,10 @@ export default function AdminPage() {
                       <div>
                         <div className="flex items-center justify-between mb-2">
                           <span
-                            className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded border ${
-                              cohort.statusTone === "emerald"
-                                ? "bg-emerald-950/60 text-emerald-400 border-emerald-800/60"
-                                : "bg-amber-950/60 text-amber-400 border-amber-800/60"
-                            }`}
+                            className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded border ${cohort.statusTone === "emerald"
+                              ? "bg-emerald-950/60 text-emerald-400 border-emerald-800/60"
+                              : "bg-amber-950/60 text-amber-400 border-amber-800/60"
+                              }`}
                           >
                             {cohort.status}
                           </span>

@@ -62,7 +62,7 @@ export function Alumni() {
       <div className="shell">
         <div className="section-top">
           <SectionHeading
-            eyebrow="COMMUNITY & OUTCOMES"
+            // eyebrow="COMMUNITY & OUTCOMES"
             title="Our Alumni Are Working At"
             highlight="Alumni Are Working At"
             description="Verified Talentele graduates placed across premier technology consulting and analytics organizations."

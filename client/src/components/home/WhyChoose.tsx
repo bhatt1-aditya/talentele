@@ -44,7 +44,7 @@ export function WhyChoose() {
       <div className="shell">
         <div className="section-top">
           <SectionHeading
-            eyebrow="THE TALENTELE DIFFERENCE"
+            // eyebrow="THE TALENTELE DIFFERENCE"
             title="Why Choose Talentele?"
             highlight="Talentele?"
             description="We don't just teach. We build careers."

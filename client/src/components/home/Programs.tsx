@@ -26,7 +26,7 @@ export function Programs() {
       <div className="shell">
         <div className="section-top">
           <SectionHeading
-            eyebrow="EXPLORE YOUR PATH"
+            // eyebrow="EXPLORE YOUR PATH"
             title="Our Programs"
             highlight="Programs"
             description="Choose from industry-oriented programs designed for real-world careers and future-ready skills."

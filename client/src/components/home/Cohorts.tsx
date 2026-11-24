@@ -42,7 +42,7 @@ export function Cohorts() {
         {/* Section Header */}
         <div className="section-top">
           <SectionHeading
-            eyebrow="UPCOMING TRAINING PROGRAMS"
+            // eyebrow="UPCOMING TRAINING PROGRAMS"
             title="Upcoming Courses and Batches"
             highlight="Courses and Batches"
             description="Explore our upcoming training programs, available learning formats and batch schedules. Connect with our team for confirmed admission dates."
