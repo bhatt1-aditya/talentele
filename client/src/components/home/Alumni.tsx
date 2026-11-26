@@ -116,8 +116,8 @@ export function Alumni() {
                   <Image
                     src={alumnus.photo}
                     alt={`${alumnus.studentName}, placed at ${alumnus.company}`}
-                    width={78}
-                    height={78}
+                    width={96}
+                    height={96}
                   />
                   {/* Floating Animated Tooltip */}
                   <div className="alumni-tooltip" aria-hidden="true">
