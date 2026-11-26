@@ -15,7 +15,7 @@ export function Alumni() {
   function scroll(dir: "left" | "right") {
     if (rowRef.current) {
       rowRef.current.scrollBy({
-        left: dir === "left" ? -280 : 280,
+        left: dir === "left" ? -360 : 360,
         behavior: "smooth",
       });
     }
@@ -50,11 +50,12 @@ export function Alumni() {
     return () => cancelAnimationFrame(animId);
   }, []);
 
-  // Triple the items for a seamless, glitch-free continuous loop across all screen sizes
+  // Display 7 verified alumni profiles tripled for a seamless, glitch-free continuous loop
+  const rawPlacements = verifiedPlacements.slice(0, 7);
   const displayPlacements = [
-    ...verifiedPlacements,
-    ...verifiedPlacements,
-    ...verifiedPlacements,
+    ...rawPlacements,
+    ...rawPlacements,
+    ...rawPlacements,
   ];
 
   return (
@@ -116,8 +117,8 @@ export function Alumni() {
                   <Image
                     src={alumnus.photo}
                     alt={`${alumnus.studentName}, placed at ${alumnus.company}`}
-                    width={96}
-                    height={96}
+                    width={136}
+                    height={136}
                   />
                   {/* Floating Animated Tooltip */}
                   <div className="alumni-tooltip" aria-hidden="true">

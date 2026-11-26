@@ -137,7 +137,7 @@ export const verifiedPlacements: PlacementRecord[] = [
   {
     id: "place-07",
     studentName: "Debasis Rout",
-    photo: "/images/home/person-2.jpg",
+    photo: "/images/home/student-hero.jpg",
     course: "Business Analytics Program",
     designation: "MIS & Analytics Executive",
     company: "Infosys",
