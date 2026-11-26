@@ -1414,22 +1414,110 @@ textarea {
 }
 
 .hero-prog-card-sm-line .prog-card-icon-wrap {
-  width: 28px;
-  height: 28px;
-  border-radius: 7px;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
   background: rgba(245, 45, 70, 0.08);
-  border: 1px solid rgba(245, 45, 70, 0.18);
+  border: 1px solid rgba(245, 45, 70, 0.2);
   color: var(--red);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
 }
 
 .hero-prog-card-sm-line:hover .prog-card-icon-wrap {
   background: var(--red);
   color: #ffffff;
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 0 0 4px rgba(245, 45, 70, 0.18);
+}
+
+.prog-icon-svg {
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+
+/* 01. Code Icon Animation: Bracket Pulse & Nudge */
+.icon-anim-code .prog-icon-svg {
+  animation: anim-code-ambient 3s ease-in-out infinite;
+}
+
+.hero-prog-card-sm-line:hover .icon-anim-code .prog-icon-svg {
+  animation: anim-code-hover 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate;
+}
+
+@keyframes anim-code-ambient {
+  0%, 100% { transform: scale(1) translateX(0); }
+  30% { transform: scale(1.08) translateX(-1.5px); }
+  70% { transform: scale(1.08) translateX(1.5px); }
+}
+
+@keyframes anim-code-hover {
+  0% { transform: scale(1.05) translateX(-1.5px); }
+  100% { transform: scale(1.15) translateX(1.5px); }
+}
+
+/* 02. Sparkle Icon Animation: Twinkle Rotate & Pop */
+.icon-anim-sparkle .prog-icon-svg {
+  animation: anim-sparkle-ambient 2.8s ease-in-out infinite;
+}
+
+.hero-prog-card-sm-line:hover .icon-anim-sparkle .prog-icon-svg {
+  animation: anim-sparkle-hover 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes anim-sparkle-ambient {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  45% { transform: scale(1.16) rotate(14deg); }
+  75% { transform: scale(0.95) rotate(-6deg); }
+}
+
+@keyframes anim-sparkle-hover {
+  0% { transform: scale(1.05) rotate(-10deg); }
+  100% { transform: scale(1.25) rotate(20deg); }
+}
+
+/* 03. Cloud Icon Animation: Smooth Floating Bob */
+.icon-anim-cloud .prog-icon-svg {
+  animation: anim-cloud-ambient 2.6s ease-in-out infinite;
+}
+
+.hero-prog-card-sm-line:hover .icon-anim-cloud .prog-icon-svg {
+  animation: anim-cloud-hover 0.65s ease-in-out infinite alternate;
+}
+
+@keyframes anim-cloud-ambient {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2.5px); }
+}
+
+@keyframes anim-cloud-hover {
+  0% { transform: translateY(0) scale(1.05); }
+  100% { transform: translateY(-3.5px) scale(1.12); }
+}
+
+/* 04. Shield Icon Animation: Heartbeat Checkmark Pulse */
+.icon-anim-shield .prog-icon-svg {
+  animation: anim-shield-ambient 2.4s ease-in-out infinite;
+}
+
+.hero-prog-card-sm-line:hover .icon-anim-shield .prog-icon-svg {
+  animation: anim-shield-hover 0.6s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;
+}
+
+@keyframes anim-shield-ambient {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  60% { transform: scale(1); }
+  80% { transform: scale(1.08); }
+}
+
+@keyframes anim-shield-hover {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.2); }
 }
 
 .hero-prog-card-sm-line .prog-card-num {
@@ -1483,6 +1571,142 @@ textarea {
   gap: 7px;
 }
 
+/* ========================================================
+   Distinct Colorful Themes for Hero Course Cards
+   ======================================================== */
+
+/* 01. Full Stack Development - Vibrant Royal Blue */
+.hero-prog-card-sm-line.prog-theme-blue .prog-card-icon-wrap {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border-color: rgba(37, 99, 235, 0.28);
+  color: #2563eb;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.1);
+}
+
+.hero-prog-card-sm-line.prog-theme-blue .prog-card-link {
+  color: #2563eb;
+}
+
+.hero-prog-card-sm-line.prog-theme-blue .prog-card-corner-shape {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08), transparent 70%);
+}
+
+.hero-prog-card-sm-line.prog-theme-blue:hover {
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.16);
+}
+
+.hero-prog-card-sm-line.prog-theme-blue:hover .prog-card-title {
+  color: #2563eb;
+}
+
+.hero-prog-card-sm-line.prog-theme-blue:hover .prog-card-icon-wrap {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border-color: #2563eb;
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2), 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+/* 02. Data Science & AI - Vibrant Violet / Purple */
+.hero-prog-card-sm-line.prog-theme-purple .prog-card-icon-wrap {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.12) 0%, rgba(192, 38, 211, 0.05) 100%);
+  border-color: rgba(147, 51, 234, 0.28);
+  color: #9333ea;
+  box-shadow: 0 2px 6px rgba(147, 51, 234, 0.1);
+}
+
+.hero-prog-card-sm-line.prog-theme-purple .prog-card-link {
+  color: #9333ea;
+}
+
+.hero-prog-card-sm-line.prog-theme-purple .prog-card-corner-shape {
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.08), transparent 70%);
+}
+
+.hero-prog-card-sm-line.prog-theme-purple:hover {
+  border-color: rgba(147, 51, 234, 0.45);
+  box-shadow: 0 10px 24px -4px rgba(147, 51, 234, 0.16);
+}
+
+.hero-prog-card-sm-line.prog-theme-purple:hover .prog-card-title {
+  color: #9333ea;
+}
+
+.hero-prog-card-sm-line.prog-theme-purple:hover .prog-card-icon-wrap {
+  background: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%);
+  border-color: #9333ea;
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.2), 0 4px 12px rgba(147, 51, 234, 0.35);
+}
+
+/* 03. Cloud & DevOps - Vibrant Sky / Cyan Blue */
+.hero-prog-card-sm-line.prog-theme-cyan .prog-card-icon-wrap {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(14, 165, 233, 0.05) 100%);
+  border-color: rgba(2, 132, 199, 0.28);
+  color: #0284c7;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.1);
+}
+
+.hero-prog-card-sm-line.prog-theme-cyan .prog-card-link {
+  color: #0284c7;
+}
+
+.hero-prog-card-sm-line.prog-theme-cyan .prog-card-corner-shape {
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.08), transparent 70%);
+}
+
+.hero-prog-card-sm-line.prog-theme-cyan:hover {
+  border-color: rgba(2, 132, 199, 0.45);
+  box-shadow: 0 10px 24px -4px rgba(2, 132, 199, 0.16);
+}
+
+.hero-prog-card-sm-line.prog-theme-cyan:hover .prog-card-title {
+  color: #0284c7;
+}
+
+.hero-prog-card-sm-line.prog-theme-cyan:hover .prog-card-icon-wrap {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border-color: #0284c7;
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.2), 0 4px 12px rgba(2, 132, 199, 0.35);
+}
+
+/* 04. Software Testing - Vibrant Emerald Green */
+.hero-prog-card-sm-line.prog-theme-emerald .prog-card-icon-wrap {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.12) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border-color: rgba(5, 150, 105, 0.28);
+  color: #059669;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.1);
+}
+
+.hero-prog-card-sm-line.prog-theme-emerald .prog-card-link {
+  color: #059669;
+}
+
+.hero-prog-card-sm-line.prog-theme-emerald .prog-card-corner-shape {
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.08), transparent 70%);
+}
+
+.hero-prog-card-sm-line.prog-theme-emerald:hover {
+  border-color: rgba(5, 150, 105, 0.45);
+  box-shadow: 0 10px 24px -4px rgba(5, 150, 105, 0.16);
+}
+
+.hero-prog-card-sm-line.prog-theme-emerald:hover .prog-card-title {
+  color: #059669;
+}
+
+.hero-prog-card-sm-line.prog-theme-emerald:hover .prog-card-icon-wrap {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  border-color: #059669;
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.2), 0 4px 12px rgba(5, 150, 105, 0.35);
+}
+
 .hero-btn-cta {
   background: var(--red) !important;
   color: #ffffff !important;
@@ -1528,14 +1752,52 @@ textarea {
 }
 
 .story-play-icon {
-  width: 22px;
-  height: 22px;
+  position: relative;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: rgba(245, 45, 70, 0.1);
+  background: rgba(245, 45, 70, 0.12);
   color: var(--red);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-play-pulse {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245, 45, 70, 0.6);
+  animation: play-pulse-wave 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes play-pulse-wave {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+
+.hero-btn-story:hover .story-play-icon {
+  background: var(--red);
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(245, 45, 70, 0.35);
+}
+
+.hero-btn-story:hover .story-play-svg {
+  transform: translateX(1px);
+  transition: transform 0.2s ease;
 }
 
 /* Trust Checklist */

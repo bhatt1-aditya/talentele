@@ -19,6 +19,8 @@ const heroPrograms = [
     desc: "Build modern, production-ready web applications.",
     href: "/courses/",
     icon: CodeXml,
+    colorTheme: "prog-theme-blue",
+    animClass: "icon-anim-code",
   },
   {
     num: "02",
@@ -26,6 +28,8 @@ const heroPrograms = [
     desc: "Turn data into intelligent, real-world solutions.",
     href: "/generative-ai-course/",
     icon: Sparkles,
+    colorTheme: "prog-theme-purple",
+    animClass: "icon-anim-sparkle",
   },
   {
     num: "03",
@@ -33,6 +37,8 @@ const heroPrograms = [
     desc: "Deploy, automate and scale modern technology.",
     href: "/courses/",
     icon: Cloud,
+    colorTheme: "prog-theme-cyan",
+    animClass: "icon-anim-cloud",
   },
   {
     num: "04",
@@ -40,6 +46,8 @@ const heroPrograms = [
     desc: "Create reliable products with industry-led QA skills.",
     href: "/software-testing-course/",
     icon: ShieldCheck,
+    colorTheme: "prog-theme-emerald",
+    animClass: "icon-anim-shield",
   },
 ];
 
@@ -97,14 +105,15 @@ export function Hero() {
             </Link>
             <Link className="hero-btn-story" href="/about-us/">
               <span className="story-play-icon">
-                <Play width={13} height={13} className="fill-current" />
+                <span className="story-play-pulse" aria-hidden="true" />
+                <Play width={13} height={13} className="fill-current story-play-svg" />
               </span>
               <span>Watch Our Story</span>
             </Link>
           </div>
         </div>
 
-        {/* 4 Courses in 1 Line Column Format (Small & Compact) */}
+        {/* 4 Courses in 1 Line Column Format (Distinct Colorful Logo Icons & Animations) */}
         <div className="hero-programs-one-line">
           {heroPrograms.map((prog) => {
             const IconComponent = prog.icon;
@@ -112,11 +121,11 @@ export function Hero() {
               <Link
                 key={prog.num}
                 href={prog.href}
-                className="hero-prog-card hero-prog-card-sm-line"
+                className={`hero-prog-card hero-prog-card-sm-line ${prog.colorTheme}`}
               >
                 <div className="prog-card-top">
-                  <span className="prog-card-icon-wrap">
-                    <IconComponent width={14} height={14} />
+                  <span className={`prog-card-icon-wrap ${prog.animClass}`}>
+                    <IconComponent width={16} height={16} className="prog-icon-svg" />
                   </span>
                   <span className="prog-card-num">{prog.num}</span>
                 </div>
